@@ -236,6 +236,18 @@
   }
   .pull .note { max-width: 40rem; }
 
+  /* audio */
+  .audio-card {
+    margin-top: 8px; padding: 30px 32px;
+    background: var(--slate-deep); color: var(--fg);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .audio-info { display: flex; gap: 18px; align-items: flex-start; }
+  .audio-dot { width: 14px; height: 14px; border-radius: 50%; background: #d7263d; margin-top: 8px; flex-shrink: 0; animation: pulse 2s infinite; }
+  .audio-title { font-size: 20px; color: var(--fg); }
+  .audio-lede { margin-top: 8px; font-size: 14px; line-height: 1.8; color: rgba(247, 245, 239, .82); max-width: 42rem; }
+  .audio-card audio { width: 100%; }
+
   /* petition */
   .petition { background: var(--wash); }
   .petition-grid { margin-top: 44px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: start; }
@@ -424,6 +436,23 @@
   </div>
 </section>
 
+<!-- AUDIO -->
+<section class="audio-sec" id="audio">
+  <div class="wrap">
+    <div class="section-label reveal"><span data-i18n="audio.label">تسجيل صوتي</span><i></i></div>
+    <div class="audio-card reveal">
+      <div class="audio-info">
+        <span class="audio-dot" aria-hidden="true"></span>
+        <div>
+          <h2 class="audio-title" data-i18n="audio.title">اسمعوا صوت الحي</h2>
+          <p class="audio-lede" data-i18n="audio.lede">شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة، على أنغام العود.</p>
+        </div>
+      </div>
+      <audio controls preload="metadata" src="assets/audio-temoignage.mp3"></audio>
+    </div>
+  </div>
+</section>
+
 <!-- PETITION -->
 <section class="petition" id="sign">
   <div class="wrap">
@@ -537,6 +566,9 @@ const translations = {
     "demands.intro": "يطالب سكان حي وسط مدينة عين الصفراء، ولاية النعامة، بالتكفل الجاد والعاجل بآثار فيضانات 8 سبتمبر 2024، التي لا يزالون يعيشون تداعياتها إلى يومنا هذا، واتخاذ إجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها، وذلك من خلال المطالب التالية:",
     "pull.quote": "إن سكان حي وسط مدينة عين الصفراء لا يطلبون امتيازًا ولا صدقة، بل يطالبون بحقوق مشروعة، وبالإنصاف والتعويض والحماية، وبمدينة نظيفة وآمنة وقادرة على مواجهة المخاطر المناخية.",
     "pull.note": "فالوقاية اليوم أقل كلفة من معالجة آثار الكوارث غدًا، وحماية السكان والممتلكات مسؤولية عمومية تستوجب التخطيط والتمويل والمتابعة الجادة والمستمرة.",
+    "audio.label": "تسجيل صوتي",
+    "audio.title": "اسمعوا صوت الحي",
+    "audio.lede": "شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة، على أنغام العود.",
     "petition.label": "العريضة",
     "petition.title": "وقّع باسمك. الاسم وحده يكفي.",
     "petition.lede": "لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.",
@@ -612,6 +644,9 @@ const translations = {
     "demands.intro": "Les habitants du centre-ville d'Aïn Sefra, wilaya de Naâma, demandent la prise en charge sérieuse et urgente des conséquences des inondations du 8 septembre 2024, qu'ils subissent encore aujourd'hui, ainsi que des mesures concrètes et durables de prévention et d'adaptation aux risques climatiques, à travers les revendications suivantes :",
     "pull.quote": "Les habitants du centre-ville d'Aïn Sefra ne demandent ni privilège ni charité : ils réclament des droits légitimes, l'équité, la réparation et la protection, et une ville propre, sûre et capable de faire face aux risques climatiques.",
     "pull.note": "Prévenir aujourd'hui coûte moins cher que réparer demain : protéger les habitants et les biens est une responsabilité publique qui exige planification, financement et suivi sérieux et continu.",
+    "audio.label": "Enregistrement",
+    "audio.title": "Écoutez la voix du quartier",
+    "audio.lede": "Un court témoignage des habitants sur une catastrophe dont les effets demeurent, au son du luth (oud).",
     "petition.label": "La pétition",
     "petition.title": "Signez avec votre nom. Un nom suffit.",
     "petition.lede": "Aucune inscription, aucune adresse e-mail. Écrivez votre nom : il rejoint immédiatement la liste des signataires jointe au document adressé aux autorités.",
@@ -687,6 +722,9 @@ const translations = {
     "demands.intro": "The residents of downtown Aïn Sefra, Naâma Province, call for serious and urgent action on the consequences of the floods of 8 September 2024, which they are still living with today, and for concrete and sustainable measures to prevent and adapt to climate risks, through the following demands:",
     "pull.quote": "The residents of downtown Aïn Sefra are not asking for a privilege or for charity. They are claiming legitimate rights: fairness, compensation and protection, and a clean, safe city able to withstand climate risks.",
     "pull.note": "Prevention today costs less than repairing disasters tomorrow, and protecting people and property is a public responsibility that requires planning, funding and serious, continuous follow-up.",
+    "audio.label": "Recording",
+    "audio.title": "Hear the voice of the district",
+    "audio.lede": "A short testimony from residents about a disaster whose effects remain, set to the sound of the oud.",
     "petition.label": "The petition",
     "petition.title": "Sign with your name. A name is enough.",
     "petition.lede": "No account, no email address. Write your name and it joins the list of signatories attached to the document sent to the authorities.",
