@@ -31,8 +31,9 @@
   .header-nav { display: flex; align-items: center; gap: 16px; }
   .header-nav a.nav-link { font-size: 12px; font-weight: 600; color: var(--ink-soft); transition: color .2s; }
   .header-nav a.nav-link:hover, .header-nav a.nav-link.active { color: var(--slate-deep); }
-  .btn-sign { background: var(--slate-deep); color: var(--fg); padding: 8px 14px; font-size: 11px; font-weight: 600; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; transition: opacity .2s; }
-  .btn-sign:hover { opacity: .9; }
+  .btn-sign { background: #d7263d; color: #fff; padding: 8px 14px; font-size: 11px; font-weight: 700; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; animation: blink 1.4s ease-in-out infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+  .btn-sign:hover { opacity: 1; animation-play-state: paused; }
   .lang-switch { display: flex; border: 1px solid var(--rule); direction: ltr; }
   .lang-switch button { background: none; border: none; padding: 6px 10px; cursor: pointer; font-size: 11px; font-weight: 600; font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; color: var(--ink-soft); transition: all .2s; }
   .lang-switch button.active { background: var(--slate-deep); color: var(--fg); }
@@ -108,7 +109,7 @@
     <h1 data-i18n="doc.title">نص المطالب كما وُجّه إلى السلطات</h1>
     <p class="lede" data-i18n="doc.lede">نص المطالب كما وُجّه رسميًّا إلى السلطات، مع نسخ المراسلة.</p>
     <div class="actions">
-      <a class="btn-outline" href="index.html#sign" data-i18n="hero.ctaSign">وقّع العريضة</a>
+      <a class="btn-sign" href="index.html#sign" data-i18n="hero.ctaSign">وقّع العريضة</a>
     </div>
   </div>
 </section>
