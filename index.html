@@ -194,12 +194,13 @@
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
   .field label { display: block; font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-  .field input, .field textarea {
+  .field input, .field textarea, .field select {
     width: 100%; border: 1px solid var(--rule); background: var(--card);
     padding: 10px 12px; font-size: 14px; color: var(--ink);
     font-family: inherit; outline: none; transition: border-color .2s;
   }
-  .field input:focus, .field textarea:focus { border-color: var(--slate-deep); }
+  .field select { appearance: auto; cursor: pointer; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--slate-deep); }
   .field textarea { resize: vertical; }
   .sign-submit {
     width: 100%; background: var(--slate-deep); color: var(--fg);
@@ -360,25 +361,24 @@
         <p class="p-lede" data-i18n="petition.lede">لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.</p>
         <form id="petitionForm" novalidate>
           <div class="field">
-            <label for="sig-name" data-i18n="petition.name">الاسم واللقب</label>
-            <input type="text" id="sig-name" maxlength="80" required placeholder="مثال: محمد بن عمر">
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="sig-city" data-i18n="petition.city">الحي أو المدينة</label>
-              <input type="text" id="sig-city" maxlength="80" placeholder="مثال: حي وسط المدينة">
-            </div>
-            <div class="field">
-              <label for="sig-country" data-i18n="petition.country">البلد</label>
-              <input type="text" id="sig-country" maxlength="80" placeholder="الجزائر">
-            </div>
+            <label for="sig-name" data-i18n="petition.name">الاسم الكامل *</label>
+            <input type="text" id="sig-name" minlength="2" maxlength="60" required placeholder="اكتب اسمك هنا...">
           </div>
           <div class="field">
-            <label for="sig-msg" data-i18n="petition.message">كلمة دعم (اختياري)</label>
-            <textarea id="sig-msg" rows="3" maxlength="400" placeholder="بضع كلمات تُنشر مع اسمك…"></textarea>
+            <label for="sig-city" data-i18n="petition.city">المدينة</label>
+            <input type="text" id="sig-city" maxlength="40" placeholder="مثال: عين الصفراء">
+          </div>
+          <div class="field">
+            <label for="sig-status" data-i18n="petition.status">أنا...</label>
+            <select id="sig-status">
+              <option value="citizen">مواطن/ة غيور/ة</option>
+              <option value="victim">من المتضرّرين</option>
+              <option value="activist">ناشط/ة مدني/ة</option>
+              <option value="solidarity">دعمًا وتضامنًا</option>
+            </select>
           </div>
           <button class="sign-submit" type="submit" id="signSubmit" data-i18n="petition.submit">أضف اسمي إلى العريضة</button>
-          <p class="consent" data-i18n="petition.consent">يُنشر اسمك والحي والبلد فقط ضمن القائمة العلنية.</p>
+          <p class="consent" data-i18n="petition.consent">يُنشر اسمك ومدينتك وصفة دعمك فقط ضمن القائمة العلنية.</p>
           <p class="form-note" id="formNote" hidden></p>
         </form>
       </div>
@@ -451,18 +451,19 @@ const translations = {
     "petition.title": "وقّع باسمك. الاسم وحده يكفي.",
     "petition.lede": "لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.",
     "petition.name": "الاسم واللقب",
-    "petition.namePh": "مثال: محمد بن عمر",
-    "petition.city": "الحي أو المدينة",
-    "petition.cityPh": "مثال: حي وسط المدينة",
-    "petition.country": "البلد",
-    "petition.countryPh": "الجزائر",
-    "petition.message": "كلمة دعم (اختياري)",
-    "petition.messagePh": "بضع كلمات تُنشر مع اسمك…",
+    "petition.namePh": "اكتب اسمك هنا...",
+    "petition.city": "المدينة",
+    "petition.cityPh": "مثال: عين الصفراء",
+    "petition.status": "أنا...",
+    "status.citizen": "مواطن/ة غيور/ة",
+    "status.victim": "من المتضرّرين",
+    "status.activist": "ناشط/ة مدني/ة",
+    "status.solidarity": "دعمًا وتضامنًا",
     "petition.submit": "أضف اسمي إلى العريضة",
     "petition.sending": "جارٍ التسجيل…",
     "petition.success": "تم تسجيل اسمك. شكرًا لدعمك.",
     "petition.error": "تعذّر تسجيل اسمك. أعد المحاولة من فضلك.",
-    "petition.consent": "يُنشر اسمك والحي والبلد فقط ضمن القائمة العلنية.",
+    "petition.consent": "يُنشر اسمك ومدينتك وصفة دعمك فقط ضمن القائمة العلنية.",
     "petition.listTitle": "الموقّعون",
     "petition.listCount": "توقيعًا",
     "petition.empty": "كن أول الموقّعين.",
@@ -516,18 +517,19 @@ const translations = {
     "petition.title": "Signez avec votre nom. Un nom suffit.",
     "petition.lede": "Aucune inscription, aucune adresse e-mail. Écrivez votre nom : il rejoint immédiatement la liste des signataires jointe au document adressé aux autorités.",
     "petition.name": "Nom et prénom",
-    "petition.namePh": "Ex. : Mohamed Benamar",
-    "petition.city": "Quartier ou ville",
-    "petition.cityPh": "Ex. : Centre-ville, Aïn Sefra",
-    "petition.country": "Pays",
-    "petition.countryPh": "Algérie",
-    "petition.message": "Mot de soutien (facultatif)",
-    "petition.messagePh": "Quelques mots publiés avec votre nom…",
+    "petition.namePh": "Écrivez votre nom ici...",
+    "petition.city": "Ville",
+    "petition.cityPh": "Ex. : Aïn Sefra",
+    "petition.status": "Je suis...",
+    "status.citizen": "Citoyen(ne) concerné(e)",
+    "status.victim": "Sinistré(e)",
+    "status.activist": "Acteur/actrice de la société civile",
+    "status.solidarity": "En solidarité",
     "petition.submit": "Ajouter mon nom",
     "petition.sending": "Enregistrement…",
     "petition.success": "Votre nom est enregistré. Merci pour votre soutien.",
     "petition.error": "Impossible d'enregistrer votre nom. Réessayez.",
-    "petition.consent": "Seuls votre nom, votre quartier et votre pays apparaissent dans la liste publique.",
+    "petition.consent": "Seuls votre nom, votre ville et votre statut apparaissent dans la liste publique.",
     "petition.listTitle": "Signataires",
     "petition.listCount": "signature(s)",
     "petition.empty": "Soyez la première signature.",
@@ -581,18 +583,19 @@ const translations = {
     "petition.title": "Sign with your name. A name is enough.",
     "petition.lede": "No account, no email address. Write your name and it joins the list of signatories attached to the document sent to the authorities.",
     "petition.name": "Full name",
-    "petition.namePh": "e.g. Mohamed Benamar",
-    "petition.city": "District or city",
-    "petition.cityPh": "e.g. Downtown, Aïn Sefra",
-    "petition.country": "Country",
-    "petition.countryPh": "Algeria",
-    "petition.message": "Message of support (optional)",
-    "petition.messagePh": "A few words published with your name…",
+    "petition.namePh": "Write your name here...",
+    "petition.city": "City",
+    "petition.cityPh": "e.g. Aïn Sefra",
+    "petition.status": "I am...",
+    "status.citizen": "Concerned citizen",
+    "status.victim": "Flood victim",
+    "status.activist": "Civil society actor",
+    "status.solidarity": "In solidarity",
     "petition.submit": "Add my name",
     "petition.sending": "Saving…",
     "petition.success": "Your name has been recorded. Thank you for your support.",
     "petition.error": "We couldn't record your name. Please try again.",
-    "petition.consent": "Only your name, district and country appear in the public list.",
+    "petition.consent": "Only your name, city and status appear in the public list.",
     "petition.listTitle": "Signatories",
     "petition.listCount": "signature(s)",
     "petition.empty": "Be the first to sign.",
@@ -671,6 +674,12 @@ function applyLang(lang) {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
 
+  const sel = document.getElementById('sig-status');
+  if (sel) {
+    const map = { citizen: t['status.citizen'], victim: t['status.victim'], activist: t['status.activist'], solidarity: t['status.solidarity'] };
+    Array.from(sel.options).forEach(o => { o.textContent = map[o.value]; });
+  }
+
   renderDemands(t);
   renderSigners();
 }
@@ -688,16 +697,17 @@ function renderSigners() {
     return;
   }
 
-  list.innerHTML = signers.slice().reverse().map(s => `
+  list.innerHTML = signers.slice().reverse().map(s => {
+    const meta = [s.city, s.statusLabel].filter(Boolean).join(' · ');
+    return `
     <li class="signer">
       <div class="signer-top">
         <span class="signer-name">${escapeHtml(s.name)}</span>
         <span class="signer-date">${dateFmt(s.ts)}</span>
       </div>
-      ${(s.city || s.country) ? `<p class="signer-meta">${escapeHtml([s.city, s.country].filter(Boolean).join(' · '))}</p>` : ''}
-      ${s.message ? `<p class="signer-msg">${escapeHtml(s.message)}</p>` : ''}
-    </li>
-  `).join('');
+      ${meta ? `<p class="signer-meta">${escapeHtml(meta)}</p>` : ''}
+    </li>`;
+  }).join('');
 }
 
 /* ================= EVENTS ================= */
@@ -713,13 +723,14 @@ form.addEventListener('submit', (e) => {
   const t = translations[currentLang];
   const name = document.getElementById('sig-name').value.trim();
   const city = document.getElementById('sig-city').value.trim();
-  const country = document.getElementById('sig-country').value.trim();
-  const message = document.getElementById('sig-msg').value.trim();
+  const sel = document.getElementById('sig-status');
+  const status = sel.value;
+  const statusLabel = sel.selectedOptions[0].textContent;
 
   note.hidden = true;
 
   if (name.length < 2) {
-    note.textContent = t['petition.namePh'];
+    note.textContent = t['petition.name'];
     note.className = 'form-note err';
     note.hidden = false;
     return;
@@ -732,7 +743,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  signers.push({ name, city, country, message, ts: Date.now() });
+  signers.push({ name, city, status, statusLabel, ts: Date.now() });
   localStorage.setItem(LS_KEY, JSON.stringify(signers));
 
   form.reset();
