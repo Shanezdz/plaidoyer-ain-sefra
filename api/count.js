@@ -31,10 +31,12 @@ async function loadFile() {
   if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
   try {
     const file = await get(blobs.blobs[0].url, { access: 'private' });
-    const parsed = JSON.parse(await file.text());
+    const parsed = JSON.parse(await new Response(file.stream).text());
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
-    throw new Error('get');
+    const err = new Error('get');
+    err.cause = e && e.message;
+    throw err;
   }
 }
 
