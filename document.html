@@ -6,7 +6,7 @@
 <title>الوثيقة الرسمية — مطالب سكان حي وسط عين الصفراء</title>
 <meta name="description" content="النص الكامل للمطالب الموجهة إلى السلطات، مع قائمة الجهات المعنية ونسخ المراسلة.">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Le document de plaidoyer — Aïn Sefra">
 <meta property="og:description" content="Le texte officiel des revendications adressé aux autorités, avec la liste des destinataires.">
 <meta property="og:type" content="website">
@@ -34,6 +34,20 @@
 
   .site-header { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--rule); background: rgba(250, 246, 239, .95); backdrop-filter: blur(8px); }
   .header-inner { max-width: 1152px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--slate-deep); margin: 5px 0; transition: transform .25s, opacity .25s; }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 760px) {
+    .menu-toggle { display: inline-block; }
+    .header-nav { position: absolute; top: 100%; inset-inline: 0; display: none; flex-direction: column; align-items: flex-start; gap: 0; background: rgba(250, 246, 239, .98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); box-shadow: 0 16px 30px rgba(0, 0, 0, .1); padding: 12px 20px 18px; z-index: 50; }
+    .header-nav.open { display: flex; }
+    .header-nav a.nav-link { display: block; width: 100%; padding: 12px 0; font-size: 15px; border-bottom: 1px solid var(--rule); }
+    .header-nav .btn-sign { margin-top: 14px; }
+    .header-nav .lang-switch { margin-top: 12px; }
+  }
+  @media (min-width: 761px) { .menu-toggle { display: none !important; } .header-nav { display: flex; } }
   .brand { min-width: 0; }
   .brand small { display: block; font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; font-size: 11px; letter-spacing: .04em; color: var(--ochre); }
   .brand strong { display: block; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; font-size: 14px; color: var(--slate-deep); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -98,7 +112,10 @@
       <small data-i18n="hero.place">ولاية النعامة</small>
       <strong data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</strong>
     </a>
-    <nav class="header-nav">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav">
       <a class="nav-link" href="index.html#context" data-i18n="nav.context">السياق</a>
       <a class="nav-link" href="index.html#demands" data-i18n="nav.demands">المطالب</a>
       <a class="nav-link active" href="document.html" data-i18n="nav.document">الوثيقة</a>
@@ -324,6 +341,21 @@ function applyLang(lang) {
 }
 
 document.querySelectorAll('.lang-switch button').forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+
+const menuToggle = document.getElementById('menuToggle');
+const headerNav = document.querySelector('.header-nav');
+if (menuToggle && headerNav) {
+  menuToggle.addEventListener('click', () => {
+    const open = headerNav.classList.toggle('open');
+    menuToggle.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+  headerNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    headerNav.classList.remove('open');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+}
 applyLang('ar');
 </script>
 </body>

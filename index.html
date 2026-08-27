@@ -6,7 +6,7 @@
 <title>عين الصفراء تطالب — عريضة سكان حي وسط المدينة</title>
 <meta name="description" content="مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية. وقّع العريضة.">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="عين الصفراء تطالب — Aïn Sefra agit">
 <meta property="og:description" content="Deux ans après les inondations du 8 septembre 2024 : cinq revendications, une pétition citoyenne. Signez avec votre nom.">
 <meta property="og:type" content="website">
@@ -92,7 +92,26 @@
     color: var(--ink-soft); transition: all .2s;
   }
   .lang-switch button.active { background: var(--slate-deep); color: var(--fg); }
-  @media (max-width: 760px) { .header-nav a.nav-link { display: none; } }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--slate-deep); margin: 5px 0; transition: transform .25s, opacity .25s; }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 760px) {
+    .menu-toggle { display: inline-block; }
+    .header-nav {
+      position: absolute; top: 100%; inset-inline: 0;
+      display: none; flex-direction: column; align-items: flex-start; gap: 0;
+      background: rgba(250, 246, 239, .98); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule); box-shadow: 0 16px 30px rgba(0, 0, 0, .1);
+      padding: 12px 20px 18px; z-index: 50;
+    }
+    .header-nav.open { display: flex; }
+    .header-nav a.nav-link { display: block; width: 100%; padding: 12px 0; font-size: 15px; border-bottom: 1px solid var(--rule); }
+    .header-nav .btn-sign { margin-top: 14px; }
+    .header-nav .lang-switch { margin-top: 12px; }
+  }
+  @media (min-width: 761px) { .menu-toggle { display: none !important; } .header-nav { display: flex; } }
 
   /* ---------------- HERO ---------------- */
   .hero {
@@ -316,7 +335,10 @@
       <small data-i18n="hero.place">ولاية النعامة</small>
       <strong data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</strong>
     </a>
-    <nav class="header-nav">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav">
       <a class="nav-link" href="#context" data-i18n="nav.context">السياق</a>
       <a class="nav-link" href="#demands" data-i18n="nav.demands">المطالب</a>
       <a class="nav-link" href="document.html" data-i18n="nav.document">الوثيقة</a>
@@ -545,6 +567,8 @@ const translations = {
     "footer.line": "مطالب سكان حي وسط مدينة عين الصفراء — ولاية النعامة",
     "footer.rights": "مبادرة مواطنة. النص منشور كما وُجّه إلى السلطات.",
     "toast.dup": "هذا الاسم مسجّل من قبل.",
+    "toast.signed": "تمّت الإضافة — شارك العريضة ليصل صوتكم أبعد",
+    "toast.relance": "شارك العريضة ولا تتوقف عند اسمك: كل مشاركة تُقرّبنا من 1000 توقيع.",
     demands: [
       { n: "1", title: "التعويض العادل والشفاف لجميع المتضررين", body: ["تمكين ما تبقى من المتضررين من ترميم مساكنهم ومحلاتهم، وتعويضهم عن الخسائر والأضرار التي لحقت بممتلكاتهم، خاصة بعد مرور ما يقارب عامين على الكارثة، دون أن يكون جميع المتضررين قد استفادوا من التعويض والتكفل اللازم."], stress: "ونؤكد أن التعويض حق مشروع وفقًا للقوانين والضوابط المعمول بها، وليس منّةً أو فضلًا." },
       { n: "2", title: "التكفل الفعلي بآثار فيضانات 8 سبتمبر 2024", body: ["اتخاذ الإجراءات القانونية والإدارية المناسبة، وتعبئة الإمكانيات والموارد الضرورية للتكفل الفعلي بالأضرار ومعالجة آثار الفيضانات، بما يضمن رفع الضرر عن المواطنين المتضررين."] },
@@ -618,6 +642,8 @@ const translations = {
     "footer.line": "Revendications des habitants du centre-ville d'Aïn Sefra — Wilaya de Naâma",
     "footer.rights": "Initiative citoyenne. Texte publié tel qu'adressé aux autorités.",
     "toast.dup": "Ce nom a déjà été enregistré.",
+    "toast.signed": "Ajouté ! Partagez pour porter la voix plus loin",
+    "toast.relance": "Ne vous arrêtez pas à votre nom : partagez — chaque partage rapproche l'objectif de 1000 signatures.",
     demands: [
       { n: "1", title: "Une indemnisation juste et transparente de tous les sinistrés", body: ["Permettre aux sinistrés qui n'ont encore rien reçu de réhabiliter leurs logements et leurs commerces, et les indemniser des pertes et dommages subis, près de deux ans après la catastrophe, alors que tous les sinistrés n'ont pas bénéficié de l'indemnisation et de la prise en charge nécessaires."], stress: "Nous rappelons que l'indemnisation est un droit légitime, conforme aux lois et aux règles en vigueur, et non une faveur." },
       { n: "2", title: "Une prise en charge effective des conséquences des inondations du 8 septembre 2024", body: ["Prendre les mesures juridiques et administratives appropriées et mobiliser les moyens et ressources nécessaires à la prise en charge effective des dégâts et au traitement des conséquences des inondations, afin de mettre fin au préjudice subi par les citoyens sinistrés."] },
@@ -691,6 +717,8 @@ const translations = {
     "footer.line": "Demands of the residents of downtown Aïn Sefra — Naâma Province",
     "footer.rights": "A citizens' initiative. Text published as sent to the authorities.",
     "toast.dup": "This name has already been recorded.",
+    "toast.signed": "Signed! Share to take the voice further",
+    "toast.relance": "Don't stop at your name: share — every share brings us closer to 1,000 signatures.",
     demands: [
       { n: "1", title: "Fair and transparent compensation for every affected family", body: ["Enable the remaining affected residents to repair their homes and shops, and compensate them for the losses and damage to their property — nearly two years after the disaster, while not all of them have received the compensation and support they were owed."], stress: "We stress that compensation is a legitimate right under the laws and regulations in force, not a favour." },
       { n: "2", title: "Effective handling of the consequences of the 8 September 2024 floods", body: ["Take the appropriate legal and administrative measures and mobilise the means and resources needed to effectively address the damage and the aftermath of the floods, so that the harm to affected citizens is lifted."] },
@@ -717,9 +745,14 @@ function showToast(msg, opts) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
   toast.style.background = (opts && opts.type === 'ok') ? '#343b4e' : '#b23b3b';
+  toast.style.cursor = (opts && opts.share) ? 'pointer' : 'default';
+  toast.onclick = null;
+  if (opts && opts.share) {
+    toast.onclick = () => window.open(document.getElementById('waShare').href, '_blank', 'noopener');
+  }
   toast.classList.add('show');
   clearTimeout(toast._t);
-  toast._t = setTimeout(() => toast.classList.remove('show'), 3000);
+  toast._t = setTimeout(() => toast.classList.remove('show'), (opts && opts.share) ? 5000 : 3000);
 }
 
 function dateFmt(ts) {
@@ -822,6 +855,21 @@ document.querySelectorAll('.lang-switch button').forEach(btn => {
   btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
+const menuToggle = document.getElementById('menuToggle');
+const headerNav = document.querySelector('.header-nav');
+if (menuToggle && headerNav) {
+  menuToggle.addEventListener('click', () => {
+    const open = headerNav.classList.toggle('open');
+    menuToggle.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+  headerNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    headerNav.classList.remove('open');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+}
+
 const form = document.getElementById('petitionForm');
 const note = document.getElementById('formNote');
 
@@ -855,7 +903,8 @@ form.addEventListener('submit', (e) => {
 
   form.reset();
   renderSigners();
-  showToast(t['petition.success'], { type: 'ok' });
+  showToast(t['toast.signed'], { type: 'ok' });
+  setTimeout(() => showToast(t['toast.relance'], { share: true }), 3600);
 });
 
 const shareBtn = document.getElementById('shareBtn');
@@ -881,6 +930,15 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ================= INIT ================= */
 applyLang('ar');
+
+try {
+  if (!sessionStorage.getItem('nudgeShown')) {
+    setTimeout(() => {
+      showToast(translations[currentLang]['toast.relance'], { share: true });
+    }, 5000);
+    sessionStorage.setItem('nudgeShown', '1');
+  }
+} catch (e) { /* sessionStorage indisponible */ }
 </script>
 </body>
 </html>
