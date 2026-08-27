@@ -1,8 +1,20 @@
 const { get, put, list } = require('@vercel/blob');
+const crypto = require('crypto');
 
 const PREFIX = 'signers.json';
 const MAX_RETURN = 250;
+const IP_SALT = 'ain-sefra-plaidoyer-2026';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function clientIp(req) {
+  const fwd = req.headers['x-forwarded-for'];
+  if (fwd) return String(fwd).split(',')[0].trim();
+  return req.headers['x-real-ip'] || '';
+}
+
+function ipHash(req) {
+  return crypto.createHash('sha256').update(IP_SALT + ':' + clientIp(req)).digest('hex');
+}
 
 function reply(res, status, data) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -70,6 +82,7 @@ module.exports = async function handler(req, res) {
       city,
       status: body.status || 'citizen',
       statusLabel: body.statusLabel || '',
+      h: ipHash(req),
       ts: Date.now(),
     };
 
@@ -82,7 +95,10 @@ module.exports = async function handler(req, res) {
         return reply(res, 500, { error: 'storage', stage: e.message });
       }
       if (current.signers.some((s) => (s.name || '').toLowerCase() === name.toLowerCase())) {
-        return reply(res, 409, { error: 'dup', count: current.signers.length });
+        return reply(res, 409, { error: 'dup', reason: 'name', count: current.signers.length });
+      }
+      if (current.signers.some((s) => s.h && s.h === signer.h)) {
+        return reply(res, 409, { error: 'dup', reason: 'ip', count: current.signers.length });
       }
       current.signers.push(signer);
       try {
@@ -105,7 +121,9 @@ module.exports = async function handler(req, res) {
     } catch (e) {
       return reply(res, 500, { error: 'storage', stage: e.message });
     }
-    const recent = current.signers.slice(-MAX_RETURN);
+    const recent = current.signers
+      .slice(-MAX_RETURN)
+      .map(({ h, ...s }) => s);
     return reply(res, 200, { count: current.signers.length, signers: recent });
   }
 
