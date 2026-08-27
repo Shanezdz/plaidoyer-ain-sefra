@@ -40,7 +40,7 @@ async function loadFile() {
 
 async function saveFile(signers) {
   await put(PREFIX, JSON.stringify(signers), {
-    access: 'public',
+    access: 'private',
     addRandomSuffix: false,
     allowOverwrite: true,
   });
@@ -95,6 +95,19 @@ module.exports = async function handler(req, res) {
     }
     const recent = signers.slice(-MAX_RETURN);
     return reply(res, 200, { count: signers.length, signers: recent });
+  }
+
+  if (req.method === 'DELETE') {
+    const admin = req.headers['x-admin'] || '';
+    if (admin !== process.env.BLOB_READ_WRITE_TOKEN) {
+      return reply(res, 403, { error: 'forbidden' });
+    }
+    try {
+      await saveFile([]);
+    } catch (e) {
+      return reply(res, 500, { error: 'storage', stage: 'put' });
+    }
+    return reply(res, 200, { ok: true, count: 0 });
   }
 
   return reply(res, 405, { error: 'method' });
