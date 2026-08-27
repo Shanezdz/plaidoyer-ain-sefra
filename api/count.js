@@ -15,7 +15,9 @@ async function loadFile() {
   try {
     blobs = await list({ prefix: PREFIX });
   } catch (e) {
-    throw new Error('list');
+    const err = new Error('list');
+    err.cause = e && e.message;
+    throw err;
   }
   if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
   try {
