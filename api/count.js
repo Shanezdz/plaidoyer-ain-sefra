@@ -53,7 +53,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
     }
     const lower = name.toLowerCase();
     if (signers.some(s => (s.name || '').toLowerCase() === lower)) {
@@ -82,7 +82,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
     }
     const recent = signers.slice(-MAX_RETURN);
     return reply(res, 200, { count: signers.length, signers: recent });
