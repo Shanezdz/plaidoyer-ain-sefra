@@ -11,14 +11,19 @@ function reply(res, status, data) {
 }
 
 async function loadFile() {
+  let blobs;
   try {
-    const blobs = await list({ prefix: PREFIX });
-    if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
+    blobs = await list({ prefix: PREFIX });
+  } catch (e) {
+    throw new Error('list');
+  }
+  if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
+  try {
     const file = await get(blobs.blobs[0].url);
     const parsed = JSON.parse(await file.text());
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
-    return [];
+    throw new Error('get');
   }
 }
 
@@ -42,7 +47,12 @@ module.exports = async function handler(req, res) {
     const city = (body && body.city || '').trim();
     if (name.length < 2) return reply(res, 400, { error: 'name' });
 
-    const signers = await loadFile();
+    let signers;
+    try {
+      signers = await loadFile();
+    } catch (e) {
+      return reply(res, 500, { error: 'storage', stage: e.message });
+    }
     const lower = name.toLowerCase();
     if (signers.some(s => (s.name || '').toLowerCase() === lower)) {
       return reply(res, 409, { error: 'dup', count: signers.length });
@@ -59,14 +69,19 @@ module.exports = async function handler(req, res) {
     try {
       await saveFile(signers);
     } catch (e) {
-      return reply(res, 500, { error: 'storage' });
+      return reply(res, 500, { error: 'storage', stage: 'put' });
     }
 
     return reply(res, 200, { ok: true, count: signers.length });
   }
 
   if (req.method === 'GET') {
-    const signers = await loadFile();
+    let signers;
+    try {
+      signers = await loadFile();
+    } catch (e) {
+      return reply(res, 500, { error: 'storage', stage: e.message });
+    }
     const recent = signers.slice(-MAX_RETURN);
     return reply(res, 200, { count: signers.length, signers: recent });
   }
