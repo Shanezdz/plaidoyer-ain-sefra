@@ -3,832 +3,766 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عين الصفراء تستحق | Ain Sefra Deserves Better</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cairo@5.0.18/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.19/index.css">
+<title>عين الصفراء تطالب — عريضة سكان حي وسط المدينة</title>
+<meta name="description" content="مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية. وقّع العريضة.">
+<meta property="og:title" content="عين الصفراء تطالب — Aïn Sefra agit">
+<meta property="og:description" content="Deux ans après les inondations du 8 septembre 2024 : cinq revendications, une pétition citoyenne. Signez avec votre nom.">
+<meta property="og:image" content="assets/innondations-Bechar-Naama.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   :root {
-    --deep-earth: #1a1f14;
-    --warm-brown: #2b3322;
-    --terracotta: #3a6b45;
-    --burnt-orange: #5a9d6b;
-    --saffron: #e8a93c;
-    --sand: #f5e6d3;
-    --cream: #faf3e7;
-    --dark: #0b0e08;
+    --paper: #faf6ef;
+    --wash: #f0ede3;
+    --ink: #37383e;
+    --ink-soft: #5f5f66;
+    --slate-deep: #343b4e;
+    --ochre: #a9792b;
+    --ochre-bright: #d5a54a;
+    --rule: #dcd8cd;
+    --fg: #f7f5ef;
+    --card: #ffffff;
   }
+
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', 'Cairo', sans-serif;
-    background: var(--deep-earth);
-    color: var(--cream);
-    overflow-x: hidden;
-    line-height: 1.6;
+    font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
-  body[dir="rtl"] { font-family: 'Cairo', 'Inter', sans-serif; }
+  h1, h2, h3, h4 { font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; }
+  ::selection { background: rgba(169, 121, 43, .3); }
+  a { text-decoration: none; color: inherit; }
 
+  .wrap { max-width: 1152px; margin: 0 auto; padding: 0 20px; }
 
-  /* LANGUAGE SWITCHER */
-  .lang-switch {
-    position: fixed; top: 20px; right: 20px; z-index: 1000;
-    display: flex; gap: 4px; background: rgba(26,31,20,0.9);
-    backdrop-filter: blur(10px); padding: 6px; border-radius: 30px;
-    border: 1px solid rgba(232,169,60,0.3);
+  /* ---------------- HEADER ---------------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(250, 246, 239, .95);
+    backdrop-filter: blur(8px);
   }
-  body[dir="rtl"] .lang-switch { right: auto; left: 20px; }
-  .lang-btn {
-    padding: 8px 16px; border: none; background: transparent;
-    color: var(--cream); cursor: pointer; border-radius: 20px;
-    font-weight: 600; font-size: 13px; transition: all 0.3s;
-    letter-spacing: 0.5px;
+  .header-inner {
+    max-width: 1152px; margin: 0 auto; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
-  .lang-btn.active { background: var(--terracotta); }
-  .lang-btn:hover:not(.active) { background: rgba(245,230,211,0.1); }
+  .brand { min-width: 0; }
+  .brand small {
+    display: block; font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif;
+    font-size: 11px; letter-spacing: .04em; color: var(--ochre);
+  }
+  .brand strong {
+    display: block; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; color: var(--slate-deep); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .header-nav { display: flex; align-items: center; gap: 16px; }
+  .header-nav a.nav-link { font-size: 12px; font-weight: 600; color: var(--ink-soft); transition: color .2s; }
+  .header-nav a.nav-link:hover { color: var(--slate-deep); }
+  .btn-sign {
+    background: var(--slate-deep); color: var(--fg);
+    padding: 8px 14px; font-size: 11px; font-weight: 600;
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    transition: opacity .2s;
+  }
+  .btn-sign:hover { opacity: .9; }
+  .lang-switch { display: flex; border: 1px solid var(--rule); direction: ltr; }
+  .lang-switch button {
+    background: none; border: none; padding: 6px 10px; cursor: pointer;
+    font-size: 11px; font-weight: 600;
+    font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif;
+    color: var(--ink-soft); transition: all .2s;
+  }
+  .lang-switch button.active { background: var(--slate-deep); color: var(--fg); }
+  @media (max-width: 760px) { .header-nav a.nav-link { display: none; } }
 
-
-  /* HERO */
-  .hero {
-    min-height: 100vh; position: relative;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; text-align: center;
-    background: radial-gradient(ellipse at center, #37452a 0%, #1a1f14 70%);
+  /* ---------------- HERO ---------------- */
+  .hero { background: var(--slate-deep); color: var(--fg); position: relative; overflow: hidden; }
+  .hero .pattern {
+    position: absolute; inset: 0; pointer-events: none; opacity: .16;
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.9) 0 1px, transparent 1px 26px);
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1534274867514-d5b47ef89ed7?w=1920');
-    background-size: cover; background-position: center;
-    opacity: 0.25; filter: grayscale(40%) contrast(1.2) sepia(0.3);
+  .hero-inner { position: relative; padding-top: 64px; }
+  .hero .state {
+    font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(247, 245, 239, .72);
   }
-  .hero::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(26,31,20,0.6) 0%, rgba(26,31,20,0.95) 100%);
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 1100px; padding: 40px 20px; }
-  .hero-tag {
-    display: inline-block; padding: 8px 20px;
-    background: #d7263d; color: white;
-    border-radius: 30px; font-size: 13px; font-weight: 700;
-    letter-spacing: 2px; margin-bottom: 30px;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(215,38,61,0.7); }
-    50% { box-shadow: 0 0 0 20px rgba(215,38,61,0); }
+  .hero .hrule { height: 1px; background: rgba(247, 245, 239, .25); margin: 16px 0 32px; }
+  .hero .kicker {
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600; color: var(--ochre-bright);
   }
   .hero h1 {
-    font-family: 'Playfair Display', 'Cairo', serif;
-    font-size: clamp(2.5rem, 7vw, 5.5rem);
-    font-weight: 900; line-height: 1.1;
-    margin-bottom: 25px;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--saffron) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-top: 16px; max-width: 52rem;
+    font-size: clamp(1.85rem, 5vw, 2.7rem); line-height: 1.35; font-weight: 700;
   }
-  .hero .subtitle {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    color: var(--sand); max-width: 800px; margin: 0 auto 40px;
-    font-weight: 300;
+  .hero .lede {
+    margin-top: 28px; max-width: 40rem;
+    border-inline-start: 2px solid var(--ochre-bright); padding-inline-start: 20px;
+    font-size: 16px; line-height: 2; color: rgba(247, 245, 239, .85);
   }
-  .hero .date-badge {
-    display: inline-block; padding: 12px 30px;
-    border: 2px solid var(--saffron); border-radius: 50px;
-    font-size: 1.1rem; color: var(--saffron); margin-bottom: 40px;
-    font-weight: 600;
+  .hero .ctas { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-accent {
+    background: var(--ochre); color: #fff; border: none; cursor: pointer;
+    padding: 14px 28px; display: inline-block;
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 700; transition: transform .2s;
   }
-  .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-  .btn {
-    padding: 16px 36px; border: none; border-radius: 50px;
-    font-size: 1rem; font-weight: 700; cursor: pointer;
-    text-decoration: none; display: inline-block;
-    transition: all 0.3s; letter-spacing: 0.5px;
+  .btn-accent:hover { transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--fg); cursor: pointer;
+    border: 1px solid rgba(247, 245, 239, .35);
+    padding: 14px 28px; display: inline-block;
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600; transition: background .2s;
   }
-  .btn-primary {
-    background: var(--terracotta); color: white;
-    box-shadow: 0 10px 30px rgba(90,157,107,0.4);
+  .btn-ghost:hover { background: rgba(247, 245, 239, .1); }
+  .hero .counters {
+    margin-top: 56px; border-top: 1px solid rgba(247, 245, 239, .2);
+    padding: 32px 0 48px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px;
   }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(90,157,107,0.6); background: var(--burnt-orange); }
-  .btn-secondary {
-    background: transparent; color: var(--cream);
-    border: 2px solid var(--cream);
-  }
-  .btn-secondary:hover { background: var(--cream); color: var(--deep-earth); }
+  .counter .num { font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; font-size: 40px; font-weight: 700; direction: ltr; }
+  .counter .num.highlight { color: var(--ochre-bright); }
+  .counter .lab { font-size: 12px; color: rgba(247, 245, 239, .72); margin-top: 6px; line-height: 1.6; }
+  .hero .dateline { padding-bottom: 40px; font-size: 11px; letter-spacing: .04em; color: rgba(247, 245, 239, .6); }
 
+  /* ---------------- SECTIONS ---------------- */
+  section { padding: 72px 0; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-label span {
+    font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--ochre);
+  }
+  .section-label i { flex: 1; height: 1px; background: var(--rule); }
+  h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1.35; font-weight: 700; color: var(--slate-deep); }
+  .prose { font-size: 15px; line-height: 2; color: var(--ink-soft); }
+  .prose p + p { margin-top: 20px; }
 
-  /* STATS */
-  .stats {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px; max-width: 1200px; margin: -80px auto 0;
-    position: relative; z-index: 3; padding: 0 20px;
-  }
-  .stat-card {
-    background: rgba(245,230,211,0.05); backdrop-filter: blur(20px);
-    border: 1px solid rgba(232,169,60,0.2);
-    padding: 35px 25px; border-radius: 20px; text-align: center;
-    transition: all 0.3s;
-  }
-  .stat-card:hover { transform: translateY(-5px); border-color: var(--saffron); }
-  .stat-number {
-    font-size: 3rem; font-weight: 900;
-    background: linear-gradient(135deg, var(--saffron) 0%, var(--cream) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Playfair Display', serif;
-  }
-  .stat-label { color: var(--sand); font-size: 0.95rem; margin-top: 8px; }
-
-
-  /* SECTIONS */
-  section { padding: 100px 20px; position: relative; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-tag {
-    display: inline-block; color: var(--saffron);
-    font-size: 0.85rem; font-weight: 700; letter-spacing: 3px;
-    margin-bottom: 15px; text-transform: uppercase;
-  }
-  .section-title {
-    font-family: 'Playfair Display', 'Cairo', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900; margin-bottom: 25px; line-height: 1.2;
-  }
-  .section-lead {
-    font-size: 1.15rem; color: var(--sand);
-    max-width: 800px; margin-bottom: 60px;
-  }
-
-
-  /* CONTEXT */
-  .context { background: linear-gradient(180deg, var(--deep-earth) 0%, #24301f 100%); }
-  .context-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: center;
-  }
-  .context-text p { margin-bottom: 20px; color: #d8c5b0; font-size: 1.05rem; }
-  .context-visual {
-    position: relative; border-radius: 20px; overflow: hidden;
-    aspect-ratio: 4/5;
-    background: linear-gradient(135deg, #37452a, #1a1f14);
-    border: 1px solid rgba(232,169,60,0.3);
-  }
-  .context-visual::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url('assets/innondations-Bechar-Naama.jpg');
-    background-size: cover; background-position: center;
-    opacity: 0.5; filter: grayscale(30%) sepia(0.2);
-  }
-  .context-visual .overlay-text {
-    position: absolute; bottom: 30px; left: 30px; right: 30px;
-    z-index: 2; font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 700; color: var(--cream);
-    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
-  }
-  body[dir="rtl"] .context-visual .overlay-text { text-align: right; }
+  /* context */
+  .context { border-bottom: 1px solid var(--rule); }
+  .context-grid { display: grid; gap: 40px; grid-template-columns: .8fr 1.2fr; }
+  .photo-band { margin-top: 40px; }
+  .photo-band img { width: 100%; height: 340px; object-fit: cover; display: block; filter: grayscale(15%) contrast(1.02); }
+  .photo-band figcaption { padding: 12px 4px; font-size: 12px; color: var(--ink-soft); }
   @media (max-width: 900px) { .context-grid { grid-template-columns: 1fr; } }
 
+  /* demands */
+  .demands { background: var(--wash); }
+  .demands .intro { margin-top: 20px; max-width: 48rem; }
+  .demand-list { margin-top: 44px; border-top: 1px solid var(--rule); }
+  .demand-item { display: grid; grid-template-columns: 5rem 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--rule); }
+  .demand-num { font-family: 'Space Grotesk', sans-serif; font-size: 44px; font-weight: 700; line-height: 1; color: var(--ochre); direction: ltr; }
+  .demand-title { font-size: 18px; font-weight: 600; line-height: 1.5; color: var(--slate-deep); }
+  .demand-item .prose p { margin-top: 12px; }
+  .demand-stress {
+    margin-top: 16px; padding: 12px 16px;
+    border-inline-start: 2px solid var(--slate-deep); background: var(--paper);
+    font-size: 15px; font-weight: 600; line-height: 1.9; color: var(--slate-deep);
+  }
+  @media (max-width: 720px) { .demand-item { grid-template-columns: 1fr; gap: 16px; } .demand-num { font-size: 34px; } }
 
-  /* DEMANDS */
-  .demands { background: var(--deep-earth); }
-  .demands-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px; margin-top: 50px;
+  /* pull quote */
+  .pull { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper); }
+  .pull-inner { max-width: 960px; margin: 0 auto; padding: 8px 20px; }
+  .hairline {
+    background-image: linear-gradient(to bottom, var(--slate-deep) 0 1.5px, transparent 1.5px 3px, rgba(52, 59, 78, .5) 3px 3.6px);
+    height: 3.6px; width: 96px;
   }
-  .demand-card {
-    background: linear-gradient(135deg, rgba(55,69,42,0.6) 0%, rgba(26,31,20,0.8) 100%);
-    border: 1px solid rgba(232,169,60,0.15);
-    border-radius: 20px; padding: 35px 30px;
-    transition: all 0.4s; position: relative; overflow: hidden;
+  .pull blockquote {
+    margin: 40px 0; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.75rem); line-height: 1.75; font-weight: 700; color: var(--slate-deep);
   }
-  .demand-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--terracotta), var(--saffron));
-    transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
-  }
-  .demand-card:hover { transform: translateY(-8px); border-color: var(--saffron); }
-  .demand-card:hover::before { transform: scaleX(1); }
-  .demand-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; font-weight: 900;
-    color: var(--saffron); opacity: 0.3;
-    line-height: 1; margin-bottom: 15px;
-  }
-  .demand-card h3 {
-    font-size: 1.25rem; font-weight: 700;
-    margin-bottom: 15px; color: var(--cream);
-  }
-  .demand-card p { color: #b8a48c; font-size: 0.95rem; }
+  .pull .note { max-width: 40rem; }
 
+  /* petition */
+  .petition { background: var(--wash); }
+  .petition-grid { margin-top: 44px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: start; }
+  @media (max-width: 900px) { .petition-grid { grid-template-columns: 1fr; } }
+  .form-card { border: 1px solid var(--rule); background: var(--card); padding: 32px; }
+  .form-card .p-title { margin-top: 12px; }
+  .form-card .p-lede { margin-top: 12px; font-size: 14px; line-height: 1.8; color: var(--ink-soft); max-width: 36rem; }
+  .form-card form { margin-top: 28px; display: grid; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+  .field label { display: block; font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .field input, .field textarea {
+    width: 100%; border: 1px solid var(--rule); background: var(--card);
+    padding: 10px 12px; font-size: 14px; color: var(--ink);
+    font-family: inherit; outline: none; transition: border-color .2s;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--slate-deep); }
+  .field textarea { resize: vertical; }
+  .sign-submit {
+    width: 100%; background: var(--slate-deep); color: var(--fg);
+    border: none; padding: 14px; cursor: pointer;
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600; transition: opacity .2s;
+  }
+  .sign-submit:hover:not(:disabled) { opacity: .9; }
+  .sign-submit:disabled { opacity: .4; cursor: not-allowed; }
+  .consent { font-size: 12px; color: var(--ink-soft); }
+  .form-note { padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--slate-deep); border-inline-start: 2px solid var(--ochre); background: var(--wash); }
+  .form-note.err { color: #b23b3b; border-inline-start-color: #b23b3b; }
 
-  /* PETITION */
-  .petition {
-    background: linear-gradient(180deg, #24301f 0%, var(--deep-earth) 100%);
-  }
-  .petition-wrapper {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 50px; align-items: start;
-  }
-  @media (max-width: 900px) { .petition-wrapper { grid-template-columns: 1fr; } }
+  .list-card { border: 1px solid var(--rule); background: rgba(240, 237, 227, .55); display: flex; flex-direction: column; }
+  .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 20px 24px; border-bottom: 1px solid var(--rule); }
+  .list-head h3 { font-size: 16px; font-weight: 700; color: var(--slate-deep); }
+  .list-head .count { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--ochre); direction: ltr; white-space: nowrap; }
+  .signers { list-style: none; max-height: 520px; overflow-y: auto; }
+  .signers::-webkit-scrollbar { width: 6px; }
+  .signers::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+  .signers .empty, .signers .loading { padding: 20px 24px; font-size: 14px; color: var(--ink-soft); }
+  .signer { padding: 14px 24px; border-bottom: 1px solid var(--rule); }
+  .signer-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .signer-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .signer-date { font-size: 11px; color: var(--ink-soft); white-space: nowrap; }
+  .signer-meta { margin-top: 2px; font-size: 12px; color: var(--ink-soft); }
+  .signer-msg { margin-top: 6px; font-size: 12px; line-height: 1.8; color: var(--ink-soft); border-inline-start: 2px solid rgba(169, 121, 43, .4); padding-inline-start: 10px; }
 
+  /* share */
+  .share { background: var(--slate-deep); color: var(--fg); }
+  .share-inner { display: flex; flex-direction: column; gap: 24px; }
+  @media (min-width: 640px) { .share-inner { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+  .share .lab { font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ochre-bright); }
+  .share h2 { margin-top: 12px; max-width: 40rem; color: var(--fg); }
+  .share .lede { margin-top: 12px; max-width: 40rem; font-size: 14px; line-height: 1.8; color: rgba(247, 245, 239, .8); }
+  .share button { background: var(--ochre); color: #fff; border: none; cursor: pointer; padding: 14px 28px; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; transition: transform .2s; flex-shrink: 0; }
+  .share button:hover { transform: translateY(-2px); }
 
-  .petition-form {
-    background: rgba(245,230,211,0.04);
-    border: 1px solid rgba(232,169,60,0.3);
-    border-radius: 25px; padding: 45px;
-    position: sticky; top: 20px;
-  }
-  .petition-form h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; margin-bottom: 15px;
-  }
-  .petition-form .lead { color: var(--sand); margin-bottom: 30px; }
-  .form-group { margin-bottom: 20px; }
-  .form-group label {
-    display: block; margin-bottom: 8px;
-    font-size: 0.9rem; color: var(--saffron); font-weight: 600;
-  }
-  .form-group input, .form-group select {
-    width: 100%; padding: 14px 18px;
-    background: rgba(245,230,211,0.05);
-    border: 1px solid rgba(245,230,211,0.15);
-    border-radius: 12px; color: var(--cream);
-    font-size: 1rem; font-family: inherit;
-    transition: all 0.3s;
-  }
-  .form-group input:focus, .form-group select:focus {
-    outline: none; border-color: var(--saffron);
-    background: rgba(245,230,211,0.08);
-  }
-  .form-group select option { background: var(--deep-earth); }
-  .sign-btn {
-    width: 100%; padding: 18px;
-    background: var(--terracotta); color: white;
-    border: none; border-radius: 12px;
-    font-size: 1.1rem; font-weight: 700;
-    cursor: pointer; transition: all 0.3s;
-    letter-spacing: 1px;
-  }
-  .sign-btn:hover { background: var(--burnt-orange); transform: translateY(-2px); }
-  .sign-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  /* footer */
+  footer { border-top: 1px solid var(--rule); background: var(--wash); }
+  .footer-inner { display: flex; flex-direction: column; gap: 8px; padding: 32px 20px; font-size: 12px; color: var(--ink-soft); }
+  @media (min-width: 640px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .footer-inner strong { font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; font-weight: 600; color: var(--slate-deep); }
 
-
-  .counter {
-    margin-top: 25px; padding: 20px;
-    background: rgba(232,169,60,0.1);
-    border-radius: 12px; text-align: center;
-    border: 1px solid rgba(232,169,60,0.3);
-  }
-  .counter .num {
-    font-size: 2.5rem; font-weight: 900;
-    color: var(--saffron); font-family: 'Playfair Display', serif;
-  }
-  .counter .label { color: var(--sand); font-size: 0.9rem; }
-
-
-  .signers-list {
-    background: rgba(245,230,211,0.03);
-    border: 1px solid rgba(245,230,211,0.1);
-    border-radius: 25px; padding: 35px;
-    max-height: 700px; overflow-y: auto;
-  }
-  .signers-list h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; margin-bottom: 25px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .signers-list h3::before {
-    content: ''; width: 10px; height: 10px;
-    background: var(--terracotta); border-radius: 50%;
-    animation: blink 1.5s infinite;
-  }
-  @keyframes blink { 50% { opacity: 0.3; } }
-  .signer-item {
-    padding: 14px 18px; margin-bottom: 10px;
-    background: rgba(245,230,211,0.03);
-    border-radius: 12px; display: flex;
-    justify-content: space-between; align-items: center;
-    border-left: 3px solid var(--saffron);
-    animation: slideIn 0.5s ease;
-  }
-  body[dir="rtl"] .signer-item { border-left: none; border-right: 3px solid var(--saffron); }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  .signer-name { font-weight: 600; color: var(--cream); }
-  .signer-meta { font-size: 0.8rem; color: #a8947c; }
-  .empty-state {
-    text-align: center; padding: 40px 20px;
-    color: #a8947c; font-style: italic;
-  }
-
-
-  /* Scrollbar */
-  .signers-list::-webkit-scrollbar { width: 6px; }
-  .signers-list::-webkit-scrollbar-track { background: rgba(245,230,211,0.05); border-radius: 3px; }
-  .signers-list::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
-
-
-  /* FOOTER */
-  footer {
-    background: #0d130a; padding: 60px 20px 30px;
-    border-top: 1px solid rgba(232,169,60,0.2);
-    text-align: center;
-  }
-  footer .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; color: var(--saffron);
-    margin-bottom: 20px; font-weight: 700;
-  }
-  footer p { color: #a8947c; margin-bottom: 10px; font-size: 0.95rem; }
-  footer .hashtag {
-    display: inline-block; margin-top: 20px;
-    padding: 10px 25px; background: rgba(58,107,69,0.2);
-    border: 1px solid var(--terracotta); border-radius: 30px;
-    color: var(--cream); font-weight: 700; letter-spacing: 1px;
-  }
-
-
-  /* Toast */
+  /* toast */
   .toast {
-    position: fixed; bottom: 30px; left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--saffron); color: var(--deep-earth);
-    padding: 16px 30px; border-radius: 50px;
-    font-weight: 700; z-index: 2000;
-    transition: transform 0.4s; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(120px);
+    background: var(--slate-deep); color: var(--fg);
+    padding: 14px 26px; font-size: 14px; font-weight: 600; z-index: 2000;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25); transition: transform .4s;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .petition-form { padding: 30px 25px; }
-    .stats { margin-top: -40px; }
-    .hero-tag { font-size: 11px; }
-  }
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s; }
+  .reveal.in { opacity: 1; transform: none; }
 </style>
 </head>
 <body dir="rtl">
 
-
-<!-- LANGUAGE SWITCHER -->
-<div class="lang-switch">
-  <button class="lang-btn active" data-lang="ar">عربي</button>
-  <button class="lang-btn" data-lang="fr">FR</button>
-  <button class="lang-btn" data-lang="en">EN</button>
-</div>
-
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <small data-i18n="hero.place">ولاية النعامة</small>
+      <strong data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</strong>
+    </a>
+    <nav class="header-nav">
+      <a class="nav-link" href="#context" data-i18n="nav.context">السياق</a>
+      <a class="nav-link" href="#demands" data-i18n="nav.demands">المطالب</a>
+      <a class="nav-link" href="document.html" data-i18n="nav.document">الوثيقة</a>
+      <a class="btn-sign" href="#sign" data-i18n="nav.sign">وقّع العريضة</a>
+      <div class="lang-switch">
+        <button type="button" data-lang="ar" class="active">ع</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-tag" data-i18n="heroTag">⚠ نداء عاجل — URGENT APPEAL</span>
-    <h1 data-i18n="heroTitle">عين الصفراء تستحقّ الحياة</h1>
-    <div class="date-badge" data-i18n="heroDate">8 سبتمبر 2024 — ذكرى لا تُنسى</div>
-    <p class="subtitle" data-i18n="heroSubtitle">
-      بعد فيضانات مدمّرة أودت بحياة أبرياء وشرّدت عائلات، نرفع صوتنا معًا.
-      وقاية، تعويض، حماية، عدالة — من أجل مدينة تستحقّ مستقبلًا.
-    </p>
-    <div class="cta-group">
-      <a href="#petition" class="btn btn-primary" data-i18n="ctaSign">✍ وقّع العريضة الآن</a>
-      <a href="#context" class="btn btn-secondary" data-i18n="ctaLearn">اكتشف القضية</a>
+  <div class="pattern" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="state" data-i18n="hero.state">الجمهورية الجزائرية الديمقراطية الشعبية</p>
+    <div class="hrule"></div>
+    <p class="kicker" data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</p>
+    <h1 data-i18n="hero.title">مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية</h1>
+    <p class="lede" data-i18n="hero.lede">عامان على فيضانات 8 سبتمبر 2024، والآثار لا تزال قائمة. نطالب بالتكفل الجاد والعاجل، وبإجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها.</p>
+    <div class="ctas">
+      <a class="btn-accent" href="#sign" data-i18n="hero.ctaSign">وقّع العريضة</a>
+      <a class="btn-ghost" href="document.html" data-i18n="hero.ctaRead">اقرأ الوثيقة كاملة</a>
     </div>
+    <div class="counters">
+      <div class="counter">
+        <div class="num" dir="ltr" data-i18n="counter.years">2</div>
+        <p class="lab" data-i18n="counter.yearsLabel">عامان دون تكفل كامل بالمتضررين</p>
+      </div>
+      <div class="counter">
+        <div class="num" dir="ltr" data-i18n="counter.demands">5</div>
+        <p class="lab" data-i18n="counter.demandsLabel">مطالب واضحة وقابلة للتنفيذ</p>
+      </div>
+      <div class="counter">
+        <div class="num highlight" id="heroCount" dir="ltr">0</div>
+        <p class="lab" data-i18n="counter.signLabel">توقيعًا إلى حد الآن</p>
+      </div>
+    </div>
+    <p class="dateline"><span data-i18n="hero.date">يوم الأحد 30 أوت 2026</span> — <span data-i18n="hero.place">ولاية النعامة</span></p>
   </div>
 </section>
-
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-card">
-    <div class="stat-number">08.09</div>
-    <div class="stat-label" data-i18n="stat1">تاريخ المأساة</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number" id="signerCount">0</div>
-    <div class="stat-label" data-i18n="stat2">صوت معًا</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">5</div>
-    <div class="stat-label" data-i18n="stat3">مطالب مشروعة</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">∞</div>
-    <div class="stat-label" data-i18n="stat4">حقّ في الحياة</div>
-  </div>
-</div>
-
 
 <!-- CONTEXT -->
 <section class="context" id="context">
-  <div class="container">
-    <span class="section-tag" data-i18n="contextTag">السياق — CONTEXT</span>
-    <h2 class="section-title" data-i18n="contextTitle">ما حدث في 8 سبتمبر 2024</h2>
-    <p class="section-lead" data-i18n="contextLead">
-      شهدت عين الصفراء فيضانات كارثية ضربت وسط المدينة والأحياء المجاورة، مخلفةً خسائر بشرية ومادية جسيمة.
-    </p>
+  <div class="wrap">
+    <div class="section-label reveal"><span data-i18n="context.label">تذكير</span><i></i></div>
     <div class="context-grid">
-      <div class="context-text">
-        <p data-i18n="contextP1">
-          في 8 سبتمبر 2024، شهدت مدينة عين الصفراء (ولاية النعامة) فيضانات مدمّرة ضربت وسط المدينة وحيّ "عين الحجر" المجاور، مخلفةً خسائر بشرية ومادية فادحة.
-        </p>
-        <p data-i18n="contextP2">
-          تضرّرت مساكن، محلات تجارية، وممتلكات المواطنين بشكل كبير. ورغم مرور الوقت، لا يزال المتضرّرون ينتظرون التعويض العادل والإجراءات الوقائية الحقيقية.
-        </p>
-        <p data-i18n="contextP3">
-          هذه المبادرة المدنية تطالب بالعدالة، الحماية، والوقاية من أخطار مناخية متزايدة — لأن الحياة لا تُقدَّر بثمن.
-        </p>
-      </div>
-      <div class="context-visual">
-        <div class="overlay-text" data-i18n="contextVisual">
-          "المدينة التي غرقت...<br>لن تصمت أبدًا"
-        </div>
+      <h2 class="reveal" data-i18n="context.title">ما الذي حدث، وما الذي لم يتغير</h2>
+      <div class="prose reveal">
+        <p data-i18n="context.p1">شهدت عين الصفراء، يوم 8 سبتمبر 2024، فيضانات عنيفة خلّفت أضرارًا واسعة بالمساكن والمحلات التجارية والطرُقات وشبكات البنية التحتية، خاصة في حي وسط المدينة وحي مولاي الهاشمي (عين الرشاق) ومنطقة سيدي بوجمعة، كما أودت سيول الوادي بحياة أحد المواطنين، رحمه الله.</p>
+        <p data-i18n="context.p2">ورغم معاينة الأضرار والوعود بالتكفل بجميع المتضررين آنذاك، فإن مرور ما يقارب عامين دون تعويض ما تبقى من المتضررين أو توفير حلول دائمة، أبقى آثار الكارثة قائمة، وزاد من معاناة المواطنين.</p>
+        <p data-i18n="context.p3">كما شهدت المنطقة خلال شهر جانفي 2026 تساقطات ثلجية كثيفة وغير معتادة، فضلًا عن هبوب رياح قوية من حين إلى آخر، وهو ما يؤكد الحاجة إلى تعزيز الاستعداد لمختلف الظواهر المناخية المتطرفة، ووضع خطط فعالة للوقاية والتكيف معها.</p>
       </div>
     </div>
+    <figure class="photo-band reveal">
+      <img src="assets/innondations-Bechar-Naama.jpg" alt="Inondations – Béchar / Naâma">
+      <figcaption data-i18n="photo.caption">فيضانات 8 سبتمبر 2024 — ولايتا بشار والنعامة</figcaption>
+    </figure>
   </div>
 </section>
-
 
 <!-- DEMANDS -->
-<section class="demands">
-  <div class="container">
-    <span class="section-tag" data-i18n="demandsTag">المطالب الخمسة — THE 5 DEMANDS</span>
-    <h2 class="section-title" data-i18n="demandsTitle">ما نطالب به</h2>
-    <p class="section-lead" data-i18n="demandsLead">
-      خمس مطالب واضحة، عادلة، ومشروعة — من أجل مدينة آمنة ومستقبل كريم لأبنائها.
-    </p>
-    <div class="demands-grid" id="demandsGrid"></div>
+<section class="demands" id="demands">
+  <div class="wrap">
+    <div class="section-label reveal"><span data-i18n="demands.label">مطالبنا</span><i></i></div>
+    <h2 class="reveal" data-i18n="demands.title">خمسة مطالب</h2>
+    <p class="prose intro reveal" data-i18n="demands.intro">يطالب سكان حي وسط مدينة عين الصفراء، ولاية النعامة، بالتكفل الجاد والعاجل بآثار فيضانات 8 سبتمبر 2024، التي لا يزالون يعيشون تداعياتها إلى يومنا هذا، واتخاذ إجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها، وذلك من خلال المطالب التالية:</p>
+    <ol class="demand-list" id="demandList"></ol>
   </div>
 </section>
 
+<!-- PULL QUOTE -->
+<section class="pull">
+  <div class="pull-inner">
+    <div class="hairline reveal"></div>
+    <blockquote class="reveal" data-i18n="pull.quote">إن سكان حي وسط مدينة عين الصفراء لا يطلبون امتيازًا ولا صدقة، بل يطالبون بحقوق مشروعة، وبالإنصاف والتعويض والحماية، وبمدينة نظيفة وآمنة وقادرة على مواجهة المخاطر المناخية.</blockquote>
+    <div class="hairline reveal"></div>
+    <p class="prose note reveal" data-i18n="pull.note">فالوقاية اليوم أقل كلفة من معالجة آثار الكوارث غدًا، وحماية السكان والممتلكات مسؤولية عمومية تستوجب التخطيط والتمويل والمتابعة الجادة والمستمرة.</p>
+  </div>
+</section>
 
 <!-- PETITION -->
-<section class="petition" id="petition">
-  <div class="container">
-    <span class="section-tag" data-i18n="petitionTag">العريضة المدنية — CIVIL PETITION</span>
-    <h2 class="section-title" data-i18n="petitionTitle">انضم إلى صوتنا</h2>
-    <p class="section-lead" data-i18n="petitionLead">
-      لا تسجيل، لا بيانات شخصية — فقط اسمك يكفي. كل توقيع هو صوت يُسمع.
-    </p>
-
-
-    <div class="petition-wrapper">
-      <div class="petition-form">
-        <h3 data-i18n="formTitle">سجّل موقفك</h3>
-        <p class="lead" data-i18n="formLead">أضف اسمك إلى قائمة المطالبين بالعدالة.</p>
-        <form id="petitionForm">
-          <div class="form-group">
-            <label data-i18n="labelName">الاسم الكامل *</label>
-            <input type="text" id="nameInput" required minlength="2" maxlength="60" placeholder="اكتب اسمك هنا...">
+<section class="petition" id="sign">
+  <div class="wrap">
+    <div class="section-label reveal"><span data-i18n="petition.label">العريضة</span><i></i></div>
+    <div class="petition-grid">
+      <div class="form-card reveal">
+        <h2 class="p-title" data-i18n="petition.title">وقّع باسمك. الاسم وحده يكفي.</h2>
+        <p class="p-lede" data-i18n="petition.lede">لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.</p>
+        <form id="petitionForm" novalidate>
+          <div class="field">
+            <label for="sig-name" data-i18n="petition.name">الاسم واللقب</label>
+            <input type="text" id="sig-name" maxlength="80" required placeholder="مثال: محمد بن عمر">
           </div>
-          <div class="form-group">
-            <label data-i18n="labelCity">المدينة</label>
-            <input type="text" id="cityInput" maxlength="40" placeholder="مثال: عين الصفراء">
+          <div class="form-row">
+            <div class="field">
+              <label for="sig-city" data-i18n="petition.city">الحي أو المدينة</label>
+              <input type="text" id="sig-city" maxlength="80" placeholder="مثال: حي وسط المدينة">
+            </div>
+            <div class="field">
+              <label for="sig-country" data-i18n="petition.country">البلد</label>
+              <input type="text" id="sig-country" maxlength="80" placeholder="الجزائر">
+            </div>
           </div>
-          <div class="form-group">
-            <label data-i18n="labelStatus">أنا...</label>
-            <select id="statusSelect">
-              <option value="citizen" data-i18n-opt="opt1">مواطن/ة غيور/ة</option>
-              <option value="victim" data-i18n-opt="opt2">من المتضرّرين</option>
-              <option value="activist" data-i18n-opt="opt3">ناشط/ة مدني/ة</option>
-              <option value="solidarity" data-i18n-opt="opt4">دعمًا وتضامنًا</option>
-            </select>
+          <div class="field">
+            <label for="sig-msg" data-i18n="petition.message">كلمة دعم (اختياري)</label>
+            <textarea id="sig-msg" rows="3" maxlength="400" placeholder="بضع كلمات تُنشر مع اسمك…"></textarea>
           </div>
-          <button type="submit" class="sign-btn" data-i18n="signBtn">✍ أوقّع العريضة</button>
+          <button class="sign-submit" type="submit" id="signSubmit" data-i18n="petition.submit">أضف اسمي إلى العريضة</button>
+          <p class="consent" data-i18n="petition.consent">يُنشر اسمك والحي والبلد فقط ضمن القائمة العلنية.</p>
+          <p class="form-note" id="formNote" hidden></p>
         </form>
-        <div class="counter">
-          <div class="num" id="counterNum">0</div>
-          <div class="label" data-i18n="counterLabel">وقّع حتى الآن</div>
-        </div>
       </div>
 
-
-      <div class="signers-list">
-        <h3 data-i18n="signersTitle">قائمة الموقّعين</h3>
-        <div id="signersContainer">
-          <div class="empty-state" data-i18n="emptyState">
-            كن أوّل من يوقّع — صوتك يُحدث الفرق.
-          </div>
+      <div class="list-card reveal">
+        <div class="list-head">
+          <h3 data-i18n="petition.listTitle">الموقّعون</h3>
+          <span class="count" id="listCount">0</span>
         </div>
+        <ul class="signers" id="signerList"></ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SHARE -->
+<section class="share">
+  <div class="wrap share-inner">
+    <div>
+      <p class="lab" data-i18n="share.label">انشر الصوت</p>
+      <h2 data-i18n="share.title">كل مشاركة تُسمِع صوت الحي أبعد</h2>
+      <p class="lede" data-i18n="share.lede">انسخ الرابط وشاركه في مجموعاتك وعلى شبكاتك. العريضة تكبر بعدد من يعرفها.</p>
+    </div>
+    <button type="button" id="shareBtn" data-i18n="share.copy">نسخ رابط العريضة</button>
+  </div>
+</section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="logo" data-i18n="footerLogo">عين الصفراء تستحقّ</div>
-  <p data-i18n="footerText">مبادرة مدنية مستقلة — من أجل العدالة والمواطنة والمسؤولية</p>
-  <p style="margin-top:15px; font-size:0.85rem;">© 2026 — <span data-i18n="footerRights">كل الحقوق محفوظة لأهل عين الصفراء</span></p>
-  <div class="hashtag">#AinSefraDeserves #عين_الصفراء_تستحق</div>
+  <div class="footer-inner">
+    <strong data-i18n="footer.line">مطالب سكان حي وسط مدينة عين الصفراء — ولاية النعامة</strong>
+    <span data-i18n="footer.rights">مبادرة مواطنة. النص منشور كما وُجّه إلى السلطات.</span>
+  </div>
 </footer>
-
 
 <div class="toast" id="toast"></div>
 
-
 <script>
-/* ============ TRANSLATIONS ============ */
+/* ================= TRANSLATIONS ================= */
 const translations = {
   ar: {
-    heroTag: "⚠ نداء عاجل — URGENT APPEAL",
-    heroTitle: "عين الصفراء تستحقّ الحياة",
-    heroDate: "8 سبتمبر 2024 — ذكرى لا تُنسى",
-    heroSubtitle: "بعد فيضانات مدمّرة أودت بحياة أبرياء وشرّدت عائلات، نرفع صوتنا معًا. وقاية، تعويض، حماية، عدالة — من أجل مدينة تستحقّ مستقبلًا.",
-    ctaSign: "✍ وقّع العريضة الآن",
-    ctaLearn: "اكتشف القضية",
-    stat1: "تاريخ المأساة",
-    stat2: "صوت معًا",
-    stat3: "مطالب مشروعة",
-    stat4: "حقّ في الحياة",
-    contextTag: "السياق — CONTEXT",
-    contextTitle: "ما حدث في 8 سبتمبر 2024",
-    contextLead: "شهدت عين الصفراء فيضانات كارثية ضربت وسط المدينة والأحياء المجاورة، مخلفةً خسائر بشرية ومادية جسيمة.",
-    contextP1: "في 8 سبتمبر 2024، شهدت مدينة عين الصفراء (ولاية النعامة) فيضانات مدمّرة ضربت وسط المدينة وحيّ 'عين الحجر' المجاور، مخلفةً خسائر بشرية ومادية فادحة.",
-    contextP2: "تضرّرت مساكن، محلات تجارية، وممتلكات المواطنين بشكل كبير. ورغم مرور الوقت، لا يزال المتضرّرون ينتظرون التعويض العادل والإجراءات الوقائية الحقيقية.",
-    contextP3: "هذه المبادرة المدنية تطالب بالعدالة، الحماية، والوقاية من أخطار مناخية متزايدة — لأن الحياة لا تُقدَّر بثمن.",
-    contextVisual: '"المدينة التي غرقت...<br>لن تصمت أبدًا"',
-    demandsTag: "المطالب الخمسة — THE 5 DEMANDS",
-    demandsTitle: "ما نطالب به",
-    demandsLead: "خمس مطالب واضحة، عادلة، ومشروعة — من أجل مدينة آمنة ومستقبل كريم لأبنائها.",
-    petitionTag: "العريضة المدنية — CIVIL PETITION",
-    petitionTitle: "انضم إلى صوتنا",
-    petitionLead: "لا تسجيل، لا بيانات شخصية — فقط اسمك يكفي. كل توقيع هو صوت يُسمع.",
-    formTitle: "سجّل موقفك",
-    formLead: "أضف اسمك إلى قائمة المطالبين بالعدالة.",
-    labelName: "الاسم الكامل *",
-    labelCity: "المدينة",
-    labelStatus: "أنا...",
-    opt1: "مواطن/ة غيور/ة",
-    opt2: "من المتضرّرين",
-    opt3: "ناشط/ة مدني/ة",
-    opt4: "دعمًا وتضامنًا",
-    signBtn: "✍ أوقّع العريضة",
-    counterLabel: "وقّع حتى الآن",
-    signersTitle: "قائمة الموقّعين",
-    emptyState: "كن أوّل من يوقّع — صوتك يُحدث الفرق.",
-    footerLogo: "عين الصفراء تستحقّ",
-    footerText: "مبادرة مدنية مستقلة — من أجل العدالة والمواطنة والمسؤولية",
-    footerRights: "كل الحقوق محفوظة لأهل عين الصفراء",
-    toastSigned: "شكرًا لك! تم تسجيل توقيعك.",
-    toastDuplicate: "تم تسجيل هذا الاسم من قبل.",
+    "hero.state": "الجمهورية الجزائرية الديمقراطية الشعبية",
+    "hero.kicker": "مدينة عين الصفراء بين الفيضانات والتغير المناخي",
+    "hero.title": "مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية",
+    "hero.lede": "عامان على فيضانات 8 سبتمبر 2024، والآثار لا تزال قائمة. نطالب بالتكفل الجاد والعاجل، وبإجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها.",
+    "hero.date": "يوم الأحد 30 أوت 2026",
+    "hero.place": "ولاية النعامة",
+    "hero.ctaSign": "وقّع العريضة",
+    "hero.ctaRead": "اقرأ الوثيقة كاملة",
+    "nav.context": "السياق",
+    "nav.demands": "المطالب",
+    "nav.document": "الوثيقة",
+    "nav.sign": "وقّع العريضة",
+    "counter.years": "2",
+    "counter.yearsLabel": "عامان دون تكفل كامل بالمتضررين",
+    "counter.demands": "5",
+    "counter.demandsLabel": "مطالب واضحة وقابلة للتنفيذ",
+    "counter.signLabel": "توقيعًا إلى حد الآن",
+    "context.label": "تذكير",
+    "context.title": "ما الذي حدث، وما الذي لم يتغير",
+    "context.p1": "شهدت عين الصفراء، يوم 8 سبتمبر 2024، فيضانات عنيفة خلّفت أضرارًا واسعة بالمساكن والمحلات التجارية والطرُقات وشبكات البنية التحتية، خاصة في حي وسط المدينة وحي مولاي الهاشمي (عين الرشاق) ومنطقة سيدي بوجمعة، كما أودت سيول الوادي بحياة أحد المواطنين، رحمه الله.",
+    "context.p2": "ورغم معاينة الأضرار والوعود بالتكفل بجميع المتضررين آنذاك، فإن مرور ما يقارب عامين دون تعويض ما تبقى من المتضررين أو توفير حلول دائمة، أبقى آثار الكارثة قائمة، وزاد من معاناة المواطنين.",
+    "context.p3": "كما شهدت المنطقة خلال شهر جانفي 2026 تساقطات ثلجية كثيفة وغير معتادة، فضلًا عن هبوب رياح قوية من حين إلى آخر، وهو ما يؤكد الحاجة إلى تعزيز الاستعداد لمختلف الظواهر المناخية المتطرفة، ووضع خطط فعالة للوقاية والتكيف معها.",
+    "photo.caption": "فيضانات 8 سبتمبر 2024 — ولايتا بشار والنعامة",
+    "demands.label": "مطالبنا",
+    "demands.title": "خمسة مطالب",
+    "demands.intro": "يطالب سكان حي وسط مدينة عين الصفراء، ولاية النعامة، بالتكفل الجاد والعاجل بآثار فيضانات 8 سبتمبر 2024، التي لا يزالون يعيشون تداعياتها إلى يومنا هذا، واتخاذ إجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها، وذلك من خلال المطالب التالية:",
+    "pull.quote": "إن سكان حي وسط مدينة عين الصفراء لا يطلبون امتيازًا ولا صدقة، بل يطالبون بحقوق مشروعة، وبالإنصاف والتعويض والحماية، وبمدينة نظيفة وآمنة وقادرة على مواجهة المخاطر المناخية.",
+    "pull.note": "فالوقاية اليوم أقل كلفة من معالجة آثار الكوارث غدًا، وحماية السكان والممتلكات مسؤولية عمومية تستوجب التخطيط والتمويل والمتابعة الجادة والمستمرة.",
+    "petition.label": "العريضة",
+    "petition.title": "وقّع باسمك. الاسم وحده يكفي.",
+    "petition.lede": "لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.",
+    "petition.name": "الاسم واللقب",
+    "petition.namePh": "مثال: محمد بن عمر",
+    "petition.city": "الحي أو المدينة",
+    "petition.cityPh": "مثال: حي وسط المدينة",
+    "petition.country": "البلد",
+    "petition.countryPh": "الجزائر",
+    "petition.message": "كلمة دعم (اختياري)",
+    "petition.messagePh": "بضع كلمات تُنشر مع اسمك…",
+    "petition.submit": "أضف اسمي إلى العريضة",
+    "petition.sending": "جارٍ التسجيل…",
+    "petition.success": "تم تسجيل اسمك. شكرًا لدعمك.",
+    "petition.error": "تعذّر تسجيل اسمك. أعد المحاولة من فضلك.",
+    "petition.consent": "يُنشر اسمك والحي والبلد فقط ضمن القائمة العلنية.",
+    "petition.listTitle": "الموقّعون",
+    "petition.listCount": "توقيعًا",
+    "petition.empty": "كن أول الموقّعين.",
+    "share.label": "انشر الصوت",
+    "share.title": "كل مشاركة تُسمِع صوت الحي أبعد",
+    "share.lede": "انسخ الرابط وشاركه في مجموعاتك وعلى شبكاتك. العريضة تكبر بعدد من يعرفها.",
+    "share.copy": "نسخ رابط العريضة",
+    "share.copied": "تم نسخ الرابط",
+    "share.text": "وقّعوا عريضة سكان حي وسط مدينة عين الصفراء: الإنصاف، الوقاية، والتكيف مع المخاطر المناخية.",
+    "footer.line": "مطالب سكان حي وسط مدينة عين الصفراء — ولاية النعامة",
+    "footer.rights": "مبادرة مواطنة. النص منشور كما وُجّه إلى السلطات.",
+    "toast.dup": "هذا الاسم مسجّل من قبل.",
     demands: [
-      { n: "01", t: "التعويض العادل والشامل", d: "تعويض جميع المتضرّرين بشكل عادل عن الخسائر والممتلكات المتضررة، وفق القانون والقواعد المعمول بها، دون تمييز." },
-      { n: "02", t: "التفعيل الفعلي للتعويض", d: "اتخاذ الإجراءات القانونية والإدارية اللازمة، وتوفير الإمكانيات والمواد اللازمة للتفعيل الفعلي لتعويض المتضرّرين من أضرار فياضانات 8 سبتمبر 2024." },
-      { n: "03", t: "برامج وقاية وتكيّف مناخي", d: "إدراج عين الصفراء ضمن منطقة وقاية وتكيّف واستصلاح من الأخطار، نظرًا للظواهر المناخية المتطرفة التي تشهدها المنطقة." },
-      { n: "04", t: "تسريع إنجاز المشاريع الحمائية", d: "الإسراع في إنجاز شبكات تصريف المياه، قنوات، جسور، وطرق — وتفعيل المشاريع على الأرض فعليًا." },
-      { n: "05", t: "اعتماد تصميم عمراني مستدام", d: "يعاري طبيعة المنطقة ومخاطر الفيضانات ومجاري الأودية، كحل دائم ومستدام بدل الفلكة بالتدخلات." }
+      { n: "1", title: "التعويض العادل والشفاف لجميع المتضررين", body: ["تمكين ما تبقى من المتضررين من ترميم مساكنهم ومحلاتهم، وتعويضهم عن الخسائر والأضرار التي لحقت بممتلكاتهم، خاصة بعد مرور ما يقارب عامين على الكارثة، دون أن يكون جميع المتضررين قد استفادوا من التعويض والتكفل اللازم."], stress: "ونؤكد أن التعويض حق مشروع وفقًا للقوانين والضوابط المعمول بها، وليس منّةً أو فضلًا." },
+      { n: "2", title: "التكفل الفعلي بآثار فيضانات 8 سبتمبر 2024", body: ["اتخاذ الإجراءات القانونية والإدارية المناسبة، وتعبئة الإمكانيات والموارد الضرورية للتكفل الفعلي بالأضرار ومعالجة آثار الفيضانات، بما يضمن رفع الضرر عن المواطنين المتضررين."] },
+      { n: "3", title: "إدراج عين الصفراء ضمن برامج التكيف مع التغير المناخي والوقاية من الأخطار الكبرى", body: ["وذلك بالنظر إلى تزايد الظواهر المناخية المتطرفة التي تشهدها المنطقة، بما يستدعي الانتقال من منطق التدخل بعد وقوع الكارثة إلى منطق الوقاية والاستباق والتكيف والحد من المخاطر."] },
+      { n: "4", title: "الإسراع في إنجاز وتأهيل مشاريع الحماية والبنية التحتية", body: ["خصوصًا شبكات تصريف مياه الأمطار والصرف الصحي ومياه الشرب، والطرقات والأرصفة، مع صيانة الأودية ومجاري المياه.", "كما نطالب بالإسراع في إنجاز السور الواقي المحيط بحي وسط المدينة والجسر الرابط بين حي قصر سيدي بوتخيل وحي وسط المدينة، ووضع حد للتأخير الإداري، والشروع الفعلي في تجسيد هذه المشاريع على أرض الواقع."] },
+      { n: "5", title: "اعتماد تخطيط عمراني استباقي", body: ["يراعي طبيعة المنطقة وخرائط مخاطر الفيضانات ومسارات السيول، ويضمن حلولًا دائمة ومستدامة، بدل الاكتفاء بالتدخلات الظرفية التي لا تعالج جذور المشكلة."] }
     ]
   },
   fr: {
-    heroTag: "⚠ APPEL URGENT — URGENT APPEAL",
-    heroTitle: "Aïn Sefra mérite la vie",
-    heroDate: "8 septembre 2024 — une mémoire vive",
-    heroSubtitle: "Après des inondations dévastatrices qui ont coûté la vie à des innocents et déplacé des familles, nous élevons la voix ensemble. Prévention, indemnisation, protection, justice — pour une ville qui mérite un avenir.",
-    ctaSign: "✍ Signer la pétition",
-    ctaLearn: "Découvrir la cause",
-    stat1: "Date du drame",
-    stat2: "Voix unies",
-    stat3: "Revendications légitimes",
-    stat4: "Droit à la vie",
-    contextTag: "CONTEXTE",
-    contextTitle: "Ce qui s'est passé le 8 septembre 2024",
-    contextLead: "Aïn Sefra a été frappée par des inondations catastrophiques au centre-ville et dans les quartiers voisins, causant d'immenses pertes humaines et matérielles.",
-    contextP1: "Le 8 septembre 2024, la ville d'Aïn Sefra (wilaya de Naâma) a été frappée par des inondations dévastatrices au centre-ville et dans le quartier voisin d'Aïn El Hadjar, causant d'énormes pertes humaines et matérielles.",
-    contextP2: "Logements, commerces et biens des citoyens ont été gravement endommagés. Malgré le temps qui passe, les sinistrés attendent toujours une indemnisation juste et de véritables mesures de prévention.",
-    contextP3: "Cette initiative citoyenne réclame justice, protection et prévention face aux risques climatiques croissants — car la vie n'a pas de prix.",
-    contextVisual: '"La ville qui a été noyée...<br>ne se taira jamais"',
-    demandsTag: "LES 5 REVENDICATIONS",
-    demandsTitle: "Ce que nous exigeons",
-    demandsLead: "Cinq revendications claires, justes et légitimes — pour une ville sûre et un avenir digne pour ses habitants.",
-    petitionTag: "PÉTITION CITOYENNE",
-    petitionTitle: "Rejoignez notre voix",
-    petitionLead: "Pas d'inscription, pas de données personnelles — juste votre nom suffit. Chaque signature est une voix qui porte.",
-    formTitle: "Affirmez votre position",
-    formLead: "Ajoutez votre nom à la liste de ceux qui exigent justice.",
-    labelName: "Nom complet *",
-    labelCity: "Ville",
-    labelStatus: "Je suis...",
-    opt1: "Citoyen(ne) concerné(e)",
-    opt2: "Sinistré(e)",
-    opt3: "Acteur/actrice de la société civile",
-    opt4: "En solidarité",
-    signBtn: "✍ Signer la pétition",
-    counterLabel: "ont signé jusqu'à présent",
-    signersTitle: "Liste des signataires",
-    emptyState: "Soyez le premier à signer — votre voix fait la différence.",
-    footerLogo: "Aïn Sefra mérite",
-    footerText: "Initiative citoyenne indépendante — pour la justice, la citoyenneté et la responsabilité",
-    footerRights: "Tous les droits réservés au peuple d'Aïn Sefra",
-    toastSigned: "Merci ! Votre signature a été enregistrée.",
-    toastDuplicate: "Ce nom a déjà été enregistré.",
+    "hero.state": "République Algérienne Démocratique et Populaire",
+    "hero.kicker": "Aïn Sefra, entre inondations et dérèglement climatique",
+    "hero.title": "Revendications des habitants du centre-ville d'Aïn Sefra pour l'équité, la prévention et l'adaptation aux risques climatiques",
+    "hero.lede": "Deux ans après les inondations du 8 septembre 2024, les dégâts sont toujours là. Nous demandons une prise en charge sérieuse et urgente, et des mesures concrètes et durables de prévention et d'adaptation.",
+    "hero.date": "Dimanche 30 août 2026",
+    "hero.place": "Wilaya de Naâma",
+    "hero.ctaSign": "Signer la pétition",
+    "hero.ctaRead": "Lire le document",
+    "nav.context": "Contexte",
+    "nav.demands": "Revendications",
+    "nav.document": "Le document",
+    "nav.sign": "Signer",
+    "counter.years": "2",
+    "counter.yearsLabel": "ans sans prise en charge complète des sinistrés",
+    "counter.demands": "5",
+    "counter.demandsLabel": "revendications claires et applicables",
+    "counter.signLabel": "signatures à ce jour",
+    "context.label": "Rappel",
+    "context.title": "Ce qui s'est passé, et ce qui n'a pas changé",
+    "context.p1": "Le 8 septembre 2024, Aïn Sefra a connu des inondations violentes qui ont causé d'importants dégâts aux habitations, aux commerces, aux routes et aux réseaux d'infrastructure, en particulier au centre-ville, au quartier Moulay Hachemi (Aïn Errechag) et à Sidi Boudjemaa. Les crues de l'oued ont également coûté la vie à un citoyen.",
+    "context.p2": "Malgré le constat des dégâts et les promesses de prise en charge de tous les sinistrés, près de deux ans se sont écoulés sans indemnisation des sinistrés restants ni solutions durables : les effets de la catastrophe demeurent et la souffrance des habitants s'aggrave.",
+    "context.p3": "En janvier 2026, la région a connu des chutes de neige denses et inhabituelles, ainsi que des vents violents par intermittence, confirmant la nécessité de renforcer la préparation aux phénomènes climatiques extrêmes et d'établir de véritables plans de prévention et d'adaptation.",
+    "photo.caption": "Inondations du 8 septembre 2024 — wilayas de Béchar et de Naâma",
+    "demands.label": "Nos revendications",
+    "demands.title": "Cinq revendications",
+    "demands.intro": "Les habitants du centre-ville d'Aïn Sefra, wilaya de Naâma, demandent la prise en charge sérieuse et urgente des conséquences des inondations du 8 septembre 2024, qu'ils subissent encore aujourd'hui, ainsi que des mesures concrètes et durables de prévention et d'adaptation aux risques climatiques, à travers les revendications suivantes :",
+    "pull.quote": "Les habitants du centre-ville d'Aïn Sefra ne demandent ni privilège ni charité : ils réclament des droits légitimes, l'équité, la réparation et la protection, et une ville propre, sûre et capable de faire face aux risques climatiques.",
+    "pull.note": "Prévenir aujourd'hui coûte moins cher que réparer demain : protéger les habitants et les biens est une responsabilité publique qui exige planification, financement et suivi sérieux et continu.",
+    "petition.label": "La pétition",
+    "petition.title": "Signez avec votre nom. Un nom suffit.",
+    "petition.lede": "Aucune inscription, aucune adresse e-mail. Écrivez votre nom : il rejoint immédiatement la liste des signataires jointe au document adressé aux autorités.",
+    "petition.name": "Nom et prénom",
+    "petition.namePh": "Ex. : Mohamed Benamar",
+    "petition.city": "Quartier ou ville",
+    "petition.cityPh": "Ex. : Centre-ville, Aïn Sefra",
+    "petition.country": "Pays",
+    "petition.countryPh": "Algérie",
+    "petition.message": "Mot de soutien (facultatif)",
+    "petition.messagePh": "Quelques mots publiés avec votre nom…",
+    "petition.submit": "Ajouter mon nom",
+    "petition.sending": "Enregistrement…",
+    "petition.success": "Votre nom est enregistré. Merci pour votre soutien.",
+    "petition.error": "Impossible d'enregistrer votre nom. Réessayez.",
+    "petition.consent": "Seuls votre nom, votre quartier et votre pays apparaissent dans la liste publique.",
+    "petition.listTitle": "Signataires",
+    "petition.listCount": "signature(s)",
+    "petition.empty": "Soyez la première signature.",
+    "share.label": "Faire du bruit",
+    "share.title": "Chaque partage porte la voix du quartier plus loin",
+    "share.lede": "Copiez le lien et partagez-le dans vos groupes et sur vos réseaux. La pétition grandit avec ceux qui la connaissent.",
+    "share.copy": "Copier le lien",
+    "share.copied": "Lien copié",
+    "share.text": "Signez la pétition des habitants du centre-ville d'Aïn Sefra : équité, prévention et adaptation climatique.",
+    "footer.line": "Revendications des habitants du centre-ville d'Aïn Sefra — Wilaya de Naâma",
+    "footer.rights": "Initiative citoyenne. Texte publié tel qu'adressé aux autorités.",
+    "toast.dup": "Ce nom a déjà été enregistré.",
     demands: [
-      { n: "01", t: "Indemnisation juste et globale", d: "Indemniser équitablement tous les sinistrés pour leurs pertes et biens endommagés, conformément à la loi et aux règles en vigueur, sans discrimination." },
-      { n: "02", t: "Activation effective des indemnisations", d: "Prendre les mesures juridiques et administratives nécessaires et fournir les moyens et matériaux requis pour indemniser effectivement les sinistrés des inondations du 8 septembre 2024." },
-      { n: "03", t: "Programmes de prévention et d'adaptation climatique", d: "Intégrer Aïn Sefra dans une zone de prévention, d'adaptation et de réhabilitation face aux risques, au vu des phénomènes climatiques extrêmes observés." },
-      { n: "04", t: "Accélération des projets de protection", d: "Accélérer la réalisation des réseaux d'assainissement, canaux, ponts et routes — et concrétiser les projets sur le terrain." },
-      { n: "05", t: "Adoption d'un plan urbain durable", d: "Respecter la nature de la région, les risques d'inondation et les cours d'eau, comme solution permanente et durable, au lieu d'interventions ponctuelles." }
+      { n: "1", title: "Une indemnisation juste et transparente de tous les sinistrés", body: ["Permettre aux sinistrés qui n'ont encore rien reçu de réhabiliter leurs logements et leurs commerces, et les indemniser des pertes et dommages subis, près de deux ans après la catastrophe, alors que tous les sinistrés n'ont pas bénéficié de l'indemnisation et de la prise en charge nécessaires."], stress: "Nous rappelons que l'indemnisation est un droit légitime, conforme aux lois et aux règles en vigueur, et non une faveur." },
+      { n: "2", title: "Une prise en charge effective des conséquences des inondations du 8 septembre 2024", body: ["Prendre les mesures juridiques et administratives appropriées et mobiliser les moyens et ressources nécessaires à la prise en charge effective des dégâts et au traitement des conséquences des inondations, afin de mettre fin au préjudice subi par les citoyens sinistrés."] },
+      { n: "3", title: "L'inscription d'Aïn Sefra dans les programmes d'adaptation au changement climatique et de prévention des risques majeurs", body: ["Compte tenu de la multiplication des phénomènes climatiques extrêmes dans la région, il faut passer d'une logique d'intervention après la catastrophe à une logique de prévention, d'anticipation, d'adaptation et de réduction des risques."] },
+      { n: "4", title: "L'accélération des projets de protection et d'infrastructure", body: ["En particulier les réseaux d'évacuation des eaux pluviales, d'assainissement et d'eau potable, les routes et les trottoirs, ainsi que l'entretien des oueds et des cours d'eau.", "Nous demandons également l'accélération du mur de protection ceinturant le centre-ville et du pont reliant le quartier Ksar Sidi Boutkhil au centre-ville, la fin des retards administratifs et le démarrage effectif de ces projets sur le terrain."] },
+      { n: "5", title: "L'adoption d'une planification urbaine anticipative", body: ["Qui tienne compte de la nature de la région, des cartes de risque d'inondation et des trajectoires des crues, et garantisse des solutions permanentes et durables, au lieu d'interventions ponctuelles qui ne traitent pas la racine du problème."] }
     ]
   },
   en: {
-    heroTag: "⚠ URGENT APPEAL",
-    heroTitle: "Aïn Sefra deserves life",
-    heroDate: "September 8, 2024 — an unforgettable memory",
-    heroSubtitle: "After devastating floods that claimed innocent lives and displaced families, we raise our voices together. Prevention, compensation, protection, justice — for a city that deserves a future.",
-    ctaSign: "✍ Sign the petition now",
-    ctaLearn: "Discover the cause",
-    stat1: "Date of tragedy",
-    stat2: "Voices united",
-    stat3: "Legitimate demands",
-    stat4: "Right to life",
-    contextTag: "CONTEXT",
-    contextTitle: "What happened on September 8, 2024",
-    contextLead: "Aïn Sefra was hit by catastrophic floods in the city center and neighboring districts, causing massive human and material losses.",
-    contextP1: "On September 8, 2024, the city of Aïn Sefra (Naâma province) was struck by devastating floods in the city center and the neighboring Aïn El Hadjar district, causing enormous human and material losses.",
-    contextP2: "Homes, shops, and citizens' properties were severely damaged. Despite the passing of time, the victims are still awaiting fair compensation and real preventive measures.",
-    contextP3: "This civic initiative demands justice, protection, and prevention against growing climate risks — because life is priceless.",
-    contextVisual: '"The city that drowned...<br>will never be silent"',
-    demandsTag: "THE 5 DEMANDS",
-    demandsTitle: "What we demand",
-    demandsLead: "Five clear, just, and legitimate demands — for a safe city and a dignified future for its people.",
-    petitionTag: "CIVIC PETITION",
-    petitionTitle: "Join our voice",
-    petitionLead: "No registration, no personal data — just your name is enough. Every signature is a voice that matters.",
-    formTitle: "State your position",
-    formLead: "Add your name to the list of those demanding justice.",
-    labelName: "Full name *",
-    labelCity: "City",
-    labelStatus: "I am...",
-    opt1: "Concerned citizen",
-    opt2: "Flood victim",
-    opt3: "Civil society actor",
-    opt4: "In solidarity",
-    signBtn: "✍ Sign the petition",
-    counterLabel: "have signed so far",
-    signersTitle: "List of signatories",
-    emptyState: "Be the first to sign — your voice makes a difference.",
-    footerLogo: "Aïn Sefra deserves",
-    footerText: "Independent civic initiative — for justice, citizenship, and responsibility",
-    footerRights: "All rights reserved for the people of Aïn Sefra",
-    toastSigned: "Thank you! Your signature has been recorded.",
-    toastDuplicate: "This name has already been recorded.",
+    "hero.state": "People's Democratic Republic of Algeria",
+    "hero.kicker": "Aïn Sefra, between floods and climate change",
+    "hero.title": "Demands of the residents of downtown Aïn Sefra for fairness, prevention and adaptation to climate risks",
+    "hero.lede": "Two years after the floods of 8 September 2024, the damage is still there. We call for serious and urgent action, and for concrete, lasting measures of prevention and climate adaptation.",
+    "hero.date": "Sunday, 30 August 2026",
+    "hero.place": "Naâma Province",
+    "hero.ctaSign": "Sign the petition",
+    "hero.ctaRead": "Read the document",
+    "nav.context": "Context",
+    "nav.demands": "Demands",
+    "nav.document": "The document",
+    "nav.sign": "Sign",
+    "counter.years": "2",
+    "counter.yearsLabel": "years without full support for the affected families",
+    "counter.demands": "5",
+    "counter.demandsLabel": "clear and actionable demands",
+    "counter.signLabel": "signatures so far",
+    "context.label": "Background",
+    "context.title": "What happened, and what has not changed",
+    "context.p1": "On 8 September 2024, Aïn Sefra was hit by violent floods that caused extensive damage to homes, shops, roads and infrastructure networks, especially in the downtown district, the Moulay Hachemi (Aïn Errechag) district and the Sidi Boudjemaa area. The floodwaters of the wadi also took the life of one resident.",
+    "context.p2": "Despite the damage assessments and the promises to support every affected family, nearly two years have passed without compensation for the remaining victims or lasting solutions. The consequences of the disaster remain, and residents' hardship has grown.",
+    "context.p3": "In January 2026 the region saw unusually heavy snowfall and repeated strong winds, confirming the need to strengthen preparedness for extreme weather and to put in place effective prevention and adaptation plans.",
+    "photo.caption": "Floods of 8 September 2024 — Béchar and Naâma provinces",
+    "demands.label": "Our demands",
+    "demands.title": "Five demands",
+    "demands.intro": "The residents of downtown Aïn Sefra, Naâma Province, call for serious and urgent action on the consequences of the floods of 8 September 2024, which they are still living with today, and for concrete and sustainable measures to prevent and adapt to climate risks, through the following demands:",
+    "pull.quote": "The residents of downtown Aïn Sefra are not asking for a privilege or for charity. They are claiming legitimate rights: fairness, compensation and protection, and a clean, safe city able to withstand climate risks.",
+    "pull.note": "Prevention today costs less than repairing disasters tomorrow, and protecting people and property is a public responsibility that requires planning, funding and serious, continuous follow-up.",
+    "petition.label": "The petition",
+    "petition.title": "Sign with your name. A name is enough.",
+    "petition.lede": "No account, no email address. Write your name and it joins the list of signatories attached to the document sent to the authorities.",
+    "petition.name": "Full name",
+    "petition.namePh": "e.g. Mohamed Benamar",
+    "petition.city": "District or city",
+    "petition.cityPh": "e.g. Downtown, Aïn Sefra",
+    "petition.country": "Country",
+    "petition.countryPh": "Algeria",
+    "petition.message": "Message of support (optional)",
+    "petition.messagePh": "A few words published with your name…",
+    "petition.submit": "Add my name",
+    "petition.sending": "Saving…",
+    "petition.success": "Your name has been recorded. Thank you for your support.",
+    "petition.error": "We couldn't record your name. Please try again.",
+    "petition.consent": "Only your name, district and country appear in the public list.",
+    "petition.listTitle": "Signatories",
+    "petition.listCount": "signature(s)",
+    "petition.empty": "Be the first to sign.",
+    "share.label": "Make noise",
+    "share.title": "Every share carries the district's voice further",
+    "share.lede": "Copy the link and share it in your groups and networks. The petition grows with everyone who hears about it.",
+    "share.copy": "Copy the link",
+    "share.copied": "Link copied",
+    "share.text": "Sign the petition of the residents of downtown Aïn Sefra: fairness, protection and climate adaptation.",
+    "footer.line": "Demands of the residents of downtown Aïn Sefra — Naâma Province",
+    "footer.rights": "A citizens' initiative. Text published as sent to the authorities.",
+    "toast.dup": "This name has already been recorded.",
     demands: [
-      { n: "01", t: "Fair and comprehensive compensation", d: "Equitably compensate all victims for their losses and damaged properties, in accordance with the law and applicable rules, without discrimination." },
-      { n: "02", t: "Effective activation of compensation", d: "Take the necessary legal and administrative measures and provide the required resources and materials to effectively compensate victims of the September 8, 2024 floods." },
-      { n: "03", t: "Climate prevention and adaptation programs", d: "Include Aïn Sefra in a prevention, adaptation, and rehabilitation zone against risks, given the extreme climate phenomena observed in the region." },
-      { n: "04", t: "Accelerate protection projects", d: "Speed up the completion of drainage networks, channels, bridges, and roads — and implement projects on the ground effectively." },
-      { n: "05", t: "Adopt a sustainable urban plan", d: "Respect the nature of the region, flood risks, and watercourses, as a permanent and sustainable solution, instead of punctual interventions." }
+      { n: "1", title: "Fair and transparent compensation for every affected family", body: ["Enable the remaining affected residents to repair their homes and shops, and compensate them for the losses and damage to their property — nearly two years after the disaster, while not all of them have received the compensation and support they were owed."], stress: "We stress that compensation is a legitimate right under the laws and regulations in force, not a favour." },
+      { n: "2", title: "Effective handling of the consequences of the 8 September 2024 floods", body: ["Take the appropriate legal and administrative measures and mobilise the means and resources needed to effectively address the damage and the aftermath of the floods, so that the harm to affected citizens is lifted."] },
+      { n: "3", title: "Include Aïn Sefra in climate adaptation and major-risk prevention programmes", body: ["Given the rise in extreme weather events in the region, we must move from intervening after disaster strikes to prevention, anticipation, adaptation and risk reduction."] },
+      { n: "4", title: "Accelerate protection and infrastructure works", body: ["Especially stormwater drainage, sewerage and drinking water networks, roads and pavements, along with the maintenance of wadis and watercourses.", "We also call for accelerating the protective wall around the downtown district and the bridge linking the Ksar Sidi Boutkhil district to downtown, ending administrative delays and actually starting these projects on the ground."] },
+      { n: "5", title: "Adopt anticipatory urban planning", body: ["Planning that accounts for the nature of the region, flood risk maps and flood paths, and delivers permanent, sustainable solutions instead of one-off interventions that never address the root of the problem."] }
     ]
   }
 };
 
-
-/* ============ STATE ============ */
+/* ================= STATE ================= */
 let currentLang = 'ar';
-let signers = JSON.parse(localStorage.getItem('ainSefraSigners') || '[]');
+const LS_KEY = 'ainSefraSigners';
+let signers = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
 
-
-/* ============ RENDER ============ */
-function applyLang(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-  document.documentElement.lang = lang;
-  document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.innerHTML = t[key];
-  });
-
-
-  // Demands
-  const grid = document.getElementById('demandsGrid');
-  grid.innerHTML = t.demands.map(d => `
-    <div class="demand-card">
-      <div class="demand-number">${d.n}</div>
-      <h3>${d.t}</h3>
-      <p>${d.d}</p>
-    </div>
-  `).join('');
-
-
-  // Select options
-  const sel = document.getElementById('statusSelect');
-  if (sel) {
-    sel.options[0].textContent = t.opt1;
-    sel.options[1].textContent = t.opt2;
-    sel.options[2].textContent = t.opt3;
-    sel.options[3].textContent = t.opt4;
-  }
-
-
-  // Lang buttons
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-
-
-  renderSigners();
-}
-
-
-function renderSigners() {
-  const container = document.getElementById('signersContainer');
-  const t = translations[currentLang];
-  const count = signers.length;
-  document.getElementById('signerCount').textContent = count;
-  document.getElementById('counterNum').textContent = count;
-
-
-  if (count === 0) {
-    container.innerHTML = `<div class="empty-state">${t.emptyState}</div>`;
-    return;
-  }
-
-
-  container.innerHTML = signers.slice().reverse().map(s => `
-    <div class="signer-item">
-      <div>
-        <div class="signer-name">${escapeHtml(s.name)}</div>
-        <div class="signer-meta">${escapeHtml(s.city || '—')} • ${s.statusLabel}</div>
-      </div>
-      <div class="signer-meta">${s.date}</div>
-    </div>
-  `).join('');
-}
-
-
+/* ================= HELPERS ================= */
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
 
-
-function showToast(msg) {
+function showToast(msg, opts) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
+  toast.style.background = (opts && opts.type === 'ok') ? '#343b4e' : '#b23b3b';
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+function dateFmt(ts) {
+  const d = new Date(ts);
+  const locale = currentLang === 'ar' ? 'ar-DZ' : currentLang === 'fr' ? 'fr-FR' : 'en-GB';
+  return d.toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric' });
+}
 
-/* ============ EVENTS ============ */
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-});
+/* ================= RENDER ================= */
+function renderDemands(t) {
+  document.getElementById('demandList').innerHTML = t.demands.map(d => `
+    <li class="demand-item">
+      <div class="demand-num" dir="ltr">${d.n}</div>
+      <div>
+        <h3 class="demand-title">${d.title}</h3>
+        <div class="prose">${d.body.map(p => '<p>' + p + '</p>').join('')}</div>
+        ${d.stress ? '<p class="demand-stress">' + d.stress + '</p>' : ''}
+      </div>
+    </li>
+  `).join('');
+}
 
+function applyLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.documentElement.lang = lang;
+  document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-document.getElementById('petitionForm').addEventListener('submit', (e) => {
-  e.preventDefault();
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+
+  renderDemands(t);
+  renderSigners();
+}
+
+function renderSigners() {
   const t = translations[currentLang];
-  const name = document.getElementById('nameInput').value.trim();
-  const city = document.getElementById('cityInput').value.trim();
-  const status = document.getElementById('statusSelect').value;
-  const statusLabel = document.getElementById('statusSelect').selectedOptions[0].textContent;
+  const list = document.getElementById('signerList');
+  const n = signers.length;
 
+  document.getElementById('heroCount').textContent = n;
+  document.getElementById('listCount').textContent = `${n} ${t['petition.listCount']}`;
 
-  if (!name || name.length < 2) return;
-  if (signers.some(s => s.name.toLowerCase() === name.toLowerCase())) {
-    showToast(t.toastDuplicate);
+  if (n === 0) {
+    list.innerHTML = `<li class="empty">${t['petition.empty']}</li>`;
     return;
   }
 
+  list.innerHTML = signers.slice().reverse().map(s => `
+    <li class="signer">
+      <div class="signer-top">
+        <span class="signer-name">${escapeHtml(s.name)}</span>
+        <span class="signer-date">${dateFmt(s.ts)}</span>
+      </div>
+      ${(s.city || s.country) ? `<p class="signer-meta">${escapeHtml([s.city, s.country].filter(Boolean).join(' · '))}</p>` : ''}
+      ${s.message ? `<p class="signer-msg">${escapeHtml(s.message)}</p>` : ''}
+    </li>
+  `).join('');
+}
 
-  const now = new Date();
-  const date = now.toLocaleDateString(currentLang === 'ar' ? 'ar-DZ' : (currentLang === 'fr' ? 'fr-FR' : 'en-US'), {
-    day: '2-digit', month: 'short', year: 'numeric'
-  });
-
-
-  signers.push({ name, city, status, statusLabel, date, ts: now.getTime() });
-  localStorage.setItem('ainSefraSigners', JSON.stringify(signers));
-
-
-  document.getElementById('petitionForm').reset();
-  renderSigners();
-  showToast(t.toastSigned);
+/* ================= EVENTS ================= */
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
+const form = document.getElementById('petitionForm');
+const note = document.getElementById('formNote');
 
-/* ============ INIT ============ */
-applyLang('ar');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const t = translations[currentLang];
+  const name = document.getElementById('sig-name').value.trim();
+  const city = document.getElementById('sig-city').value.trim();
+  const country = document.getElementById('sig-country').value.trim();
+  const message = document.getElementById('sig-msg').value.trim();
 
+  note.hidden = true;
 
-// Seed a few example signers if empty (for demo feel)
-if (signers.length === 0) {
-  const seeds = [
-    { name: "Karim B.", city: "Aïn Sefra", status: "victim", statusLabel: "Sinistré", date: "07/03/2026", ts: 1 },
-    { name: "Nour H.", city: "Alger", status: "solidarity", statusLabel: "Solidarité", date: "07/03/2026", ts: 2 },
-    { name: "Yacine M.", city: "Oran", status: "activist", statusLabel: "Activiste", date: "06/03/2026", ts: 3 },
-    { name: "Fatima Z.", city: "Aïn Sefra", status: "citizen", statusLabel: "Citoyenne", date: "06/03/2026", ts: 4 },
-    { name: "Omar R.", city: "Béchar", status: "solidarity", statusLabel: "Solidarité", date: "05/03/2026", ts: 5 }
-  ];
-  signers = seeds;
-  localStorage.setItem('ainSefraSigners', JSON.stringify(signers));
+  if (name.length < 2) {
+    note.textContent = t['petition.namePh'];
+    note.className = 'form-note err';
+    note.hidden = false;
+    return;
+  }
+
+  if (signers.some(s => s.name.toLowerCase() === name.toLowerCase())) {
+    note.textContent = t['toast.dup'];
+    note.className = 'form-note err';
+    note.hidden = false;
+    return;
+  }
+
+  signers.push({ name, city, country, message, ts: Date.now() });
+  localStorage.setItem(LS_KEY, JSON.stringify(signers));
+
+  form.reset();
   renderSigners();
-}
+  showToast(t['petition.success'], { type: 'ok' });
+});
+
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', async () => {
+  const t = translations[currentLang];
+  const url = window.location.origin + window.location.pathname;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: t['hero.kicker'], text: t['share.text'], url });
+      return;
+    }
+    await navigator.clipboard.writeText(`${t['share.text']} ${url}`);
+  } catch { /* cancelled */ }
+  shareBtn.textContent = t['share.copied'];
+  setTimeout(() => shareBtn.textContent = t['share.copy'], 2500);
+});
+
+/* reveal on scroll */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ================= INIT ================= */
+applyLang('ar');
 </script>
 </body>
 </html>
