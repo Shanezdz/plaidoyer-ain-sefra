@@ -94,7 +94,18 @@
     font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
     color: rgba(247, 245, 239, .72);
   }
-  .hero .hrule { height: 1px; background: rgba(247, 245, 239, .25); margin: 16px 0 32px; }
+  .hero .hrule { height: 1px; background: rgba(247, 245, 239, .25); margin: 24px 0 28px; }
+  .hero .urgent-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 40px;
+    background: #d7263d; color: #fff;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 2px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(215, 38, 61, .7); }
+    50% { box-shadow: 0 0 0 18px rgba(215, 38, 61, 0); }
+  }
   .hero .kicker {
     font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
     font-size: 14px; font-weight: 600; color: var(--ochre-bright);
@@ -153,6 +164,11 @@
   .photo-band { margin-top: 40px; }
   .photo-band img { width: 100%; height: 340px; object-fit: cover; display: block; filter: grayscale(15%) contrast(1.02); }
   .photo-band figcaption { padding: 12px 4px; font-size: 12px; color: var(--ink-soft); }
+  .gallery-grid { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .gallery-grid figure { margin: 0; }
+  .gallery-grid img { width: 100%; height: 180px; object-fit: cover; display: block; filter: grayscale(15%) contrast(1.02); }
+  .gallery-grid figcaption { padding: 10px 4px; font-size: 11.5px; line-height: 1.6; color: var(--ink-soft); }
+  @media (max-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 900px) { .context-grid { grid-template-columns: 1fr; } }
 
   /* demands */
@@ -287,7 +303,8 @@
   <div class="wrap hero-inner">
     <p class="state" data-i18n="hero.state">الجمهورية الجزائرية الديمقراطية الشعبية</p>
     <div class="hrule"></div>
-    <p class="kicker" data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</p>
+    <span class="urgent-tag" data-i18n="hero.tag">⚠ نداء عاجل — URGENT APPEAL</span>
+    <p class="kicker" style="margin-top:24px;" data-i18n="hero.kicker">مدينة عين الصفراء بين الفيضانات والتغير المناخي</p>
     <h1 data-i18n="hero.title">مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية</h1>
     <p class="lede" data-i18n="hero.lede">عامان على فيضانات 8 سبتمبر 2024، والآثار لا تزال قائمة. نطالب بالتكفل الجاد والعاجل، وبإجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها.</p>
     <div class="ctas">
@@ -328,6 +345,7 @@
       <img src="assets/innondations-Bechar-Naama.jpg" alt="Inondations – Béchar / Naâma">
       <figcaption data-i18n="photo.caption">فيضانات 8 سبتمبر 2024 — ولايتا بشار والنعامة</figcaption>
     </figure>
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
   </div>
 </section>
 
@@ -419,6 +437,7 @@
 /* ================= TRANSLATIONS ================= */
 const translations = {
   ar: {
+    "hero.tag": "⚠ نداء عاجل — URGENT APPEAL",
     "hero.state": "الجمهورية الجزائرية الديمقراطية الشعبية",
     "hero.kicker": "مدينة عين الصفراء بين الفيضانات والتغير المناخي",
     "hero.title": "مطالب سكان حي وسط مدينة عين الصفراء من أجل الإنصاف والوقاية والتكيف مع المخاطر المناخية",
@@ -442,6 +461,12 @@ const translations = {
     "context.p2": "ورغم معاينة الأضرار والوعود بالتكفل بجميع المتضررين آنذاك، فإن مرور ما يقارب عامين دون تعويض ما تبقى من المتضررين أو توفير حلول دائمة، أبقى آثار الكارثة قائمة، وزاد من معاناة المواطنين.",
     "context.p3": "كما شهدت المنطقة خلال شهر جانفي 2026 تساقطات ثلجية كثيفة وغير معتادة، فضلًا عن هبوب رياح قوية من حين إلى آخر، وهو ما يؤكد الحاجة إلى تعزيز الاستعداد لمختلف الظواهر المناخية المتطرفة، ووضع خطط فعالة للوقاية والتكيف معها.",
     "photo.caption": "فيضانات 8 سبتمبر 2024 — ولايتا بشار والنعامة",
+    "photos": [
+      { "src": "assets/ain-sefra-1.jpg", "cap": "عين الصفراء — بعد فيضانات 2024" },
+      { "src": "assets/ain-sefra-2.jpg", "cap": "عين الصفراء — آثار تداعيات الفيضان" },
+      { "src": "assets/ain-sefra-3.jpeg", "cap": "عين الصفراء — المناطق المتضررة" },
+      { "src": "assets/ain-sefra-4.jpg", "cap": "عين الصفراء — الوضع اليوم" }
+    ],
     "demands.label": "مطالبنا",
     "demands.title": "خمسة مطالب",
     "demands.intro": "يطالب سكان حي وسط مدينة عين الصفراء، ولاية النعامة، بالتكفل الجاد والعاجل بآثار فيضانات 8 سبتمبر 2024، التي لا يزالون يعيشون تداعياتها إلى يومنا هذا، واتخاذ إجراءات عملية ومستدامة للوقاية من المخاطر المناخية والتكيف معها، وذلك من خلال المطالب التالية:",
@@ -485,6 +510,7 @@ const translations = {
     ]
   },
   fr: {
+    "hero.tag": "⚠ APPEL URGENT — URGENT APPEAL",
     "hero.state": "République Algérienne Démocratique et Populaire",
     "hero.kicker": "Aïn Sefra, entre inondations et dérèglement climatique",
     "hero.title": "Revendications des habitants du centre-ville d'Aïn Sefra pour l'équité, la prévention et l'adaptation aux risques climatiques",
@@ -508,6 +534,12 @@ const translations = {
     "context.p2": "Malgré le constat des dégâts et les promesses de prise en charge de tous les sinistrés, près de deux ans se sont écoulés sans indemnisation des sinistrés restants ni solutions durables : les effets de la catastrophe demeurent et la souffrance des habitants s'aggrave.",
     "context.p3": "En janvier 2026, la région a connu des chutes de neige denses et inhabituelles, ainsi que des vents violents par intermittence, confirmant la nécessité de renforcer la préparation aux phénomènes climatiques extrêmes et d'établir de véritables plans de prévention et d'adaptation.",
     "photo.caption": "Inondations du 8 septembre 2024 — wilayas de Béchar et de Naâma",
+    "photos": [
+      { "src": "assets/ain-sefra-1.jpg", "cap": "Aïn Sefra — après les inondations de 2024" },
+      { "src": "assets/ain-sefra-2.jpg", "cap": "Aïn Sefra — les suites du déluge" },
+      { "src": "assets/ain-sefra-3.jpeg", "cap": "Aïn Sefra — quartiers touchés" },
+      { "src": "assets/ain-sefra-4.jpg", "cap": "Aïn Sefra — la situation aujourd'hui" }
+    ],
     "demands.label": "Nos revendications",
     "demands.title": "Cinq revendications",
     "demands.intro": "Les habitants du centre-ville d'Aïn Sefra, wilaya de Naâma, demandent la prise en charge sérieuse et urgente des conséquences des inondations du 8 septembre 2024, qu'ils subissent encore aujourd'hui, ainsi que des mesures concrètes et durables de prévention et d'adaptation aux risques climatiques, à travers les revendications suivantes :",
@@ -551,6 +583,7 @@ const translations = {
     ]
   },
   en: {
+    "hero.tag": "⚠ URGENT APPEAL",
     "hero.state": "People's Democratic Republic of Algeria",
     "hero.kicker": "Aïn Sefra, between floods and climate change",
     "hero.title": "Demands of the residents of downtown Aïn Sefra for fairness, prevention and adaptation to climate risks",
@@ -574,6 +607,12 @@ const translations = {
     "context.p2": "Despite the damage assessments and the promises to support every affected family, nearly two years have passed without compensation for the remaining victims or lasting solutions. The consequences of the disaster remain, and residents' hardship has grown.",
     "context.p3": "In January 2026 the region saw unusually heavy snowfall and repeated strong winds, confirming the need to strengthen preparedness for extreme weather and to put in place effective prevention and adaptation plans.",
     "photo.caption": "Floods of 8 September 2024 — Béchar and Naâma provinces",
+    "photos": [
+      { "src": "assets/ain-sefra-1.jpg", "cap": "Aïn Sefra — after the 2024 floods" },
+      { "src": "assets/ain-sefra-2.jpg", "cap": "Aïn Sefra — the aftermath" },
+      { "src": "assets/ain-sefra-3.jpeg", "cap": "Aïn Sefra — affected districts" },
+      { "src": "assets/ain-sefra-4.jpg", "cap": "Aïn Sefra — the situation today" }
+    ],
     "demands.label": "Our demands",
     "demands.title": "Five demands",
     "demands.intro": "The residents of downtown Aïn Sefra, Naâma Province, call for serious and urgent action on the consequences of the floods of 8 September 2024, which they are still living with today, and for concrete and sustainable measures to prevent and adapt to climate risks, through the following demands:",
@@ -659,6 +698,17 @@ function renderDemands(t) {
   `).join('');
 }
 
+function renderGallery(t) {
+  const grid = document.getElementById('galleryGrid');
+  if (!t.photos) return;
+  grid.innerHTML = t.photos.map(p => `
+    <figure>
+      <img loading="lazy" src="${p.src}" alt="${p.cap}">
+      <figcaption>${p.cap}</figcaption>
+    </figure>
+  `).join('');
+}
+
 function applyLang(lang) {
   currentLang = lang;
   const t = translations[lang];
@@ -684,6 +734,7 @@ function applyLang(lang) {
   document.getElementById('sig-city').placeholder = t['petition.cityPh'];
 
   renderDemands(t);
+  renderGallery(t);
   renderSigners();
 }
 
