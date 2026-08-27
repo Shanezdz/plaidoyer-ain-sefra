@@ -10,6 +10,15 @@ function reply(res, status, data) {
   return res.status(status).json(data);
 }
 
+function envDebug() {
+  const tok = process.env.BLOB_READ_WRITE_TOKEN || '';
+  return {
+    store: process.env.BLOB_STORE_ID || '(none)',
+    tokLen: tok.length,
+    tokTail: tok.slice(-6),
+  };
+}
+
 async function loadFile() {
   let blobs;
   try {
@@ -53,7 +62,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '', env: envDebug() });
     }
     const lower = name.toLowerCase();
     if (signers.some(s => (s.name || '').toLowerCase() === lower)) {
@@ -82,7 +91,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '', env: envDebug() });
     }
     const recent = signers.slice(-MAX_RETURN);
     return reply(res, 200, { count: signers.length, signers: recent });
