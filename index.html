@@ -306,6 +306,8 @@
   .share .lab { font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ochre-bright); }
   .share h2 { margin-top: 12px; max-width: 40rem; color: var(--fg); }
   .share .lede { margin-top: 12px; max-width: 40rem; font-size: 14px; line-height: 1.8; color: rgba(247, 245, 239, .8); }
+  .share-progress { margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--ochre-bright); }
+  .share-progress.hit { color: #25d366; }
   .share-actions { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
   .share-actions button, .share-actions a {
     color: #fff; border: none; cursor: pointer; padding: 14px 26px;
@@ -445,7 +447,7 @@
         <span class="audio-dot" aria-hidden="true"></span>
         <div>
           <h2 class="audio-title" data-i18n="audio.title">اسمعوا صوت الحي</h2>
-          <p class="audio-lede" data-i18n="audio.lede">شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة، على أنغام العود.</p>
+          <p class="audio-lede" data-i18n="audio.lede">شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة.</p>
         </div>
       </div>
       <audio controls preload="metadata" src="assets/audio-temoignage.mp3"></audio>
@@ -510,6 +512,7 @@
       <p class="lab" data-i18n="share.label">انشر الصوت</p>
       <h2 data-i18n="share.title">كل مشاركة تُسمِع صوت الحي أبعد</h2>
       <p class="lede" data-i18n="share.lede">انسخ الرابط وشاركه في مجموعاتك وعلى شبكاتك. العريضة تكبر بعدد من يعرفها.</p>
+      <p class="share-progress" id="shareRemain"></p>
     </div>
     <div class="share-actions">
       <button type="button" class="share-copy" id="shareBtn" data-i18n="share.copy">نسخ رابط العريضة</button>
@@ -568,7 +571,7 @@ const translations = {
     "pull.note": "فالوقاية اليوم أقل كلفة من معالجة آثار الكوارث غدًا، وحماية السكان والممتلكات مسؤولية عمومية تستوجب التخطيط والتمويل والمتابعة الجادة والمستمرة.",
     "audio.label": "تسجيل صوتي",
     "audio.title": "اسمعوا صوت الحي",
-    "audio.lede": "شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة، على أنغام العود.",
+    "audio.lede": "شهادة قصيرة من سكان الحي عن فيضانات لا تزال آثارها حاضرة.",
     "petition.label": "العريضة",
     "petition.title": "وقّع باسمك. الاسم وحده يكفي.",
     "petition.lede": "لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.",
@@ -594,6 +597,8 @@ const translations = {
     "share.lede": "انسخ الرابط وشاركه في مجموعاتك وعلى شبكاتك. العريضة تكبر بعدد من يعرفها.",
     "share.copy": "نسخ رابط العريضة",
     "share.copied": "تم نسخ الرابط",
+    "share.remain": "باقي {n} توقيع للوصول إلى 1000 — كل مشاركة تقرّبنا.",
+    "share.reached": "تم بلوغ 1000 توقيع! أواصلوا مشاركة العريضة.",
     "share.text": "وقّعوا عريضة سكان حي وسط مدينة عين الصفراء: الإنصاف، الوقاية، والتكيف مع المخاطر المناخية.",
     "goal.label": "المسار نحو 1000 توقيع",
     "footer.line": "مطالب سكان حي وسط مدينة عين الصفراء — ولاية النعامة",
@@ -646,7 +651,7 @@ const translations = {
     "pull.note": "Prévenir aujourd'hui coûte moins cher que réparer demain : protéger les habitants et les biens est une responsabilité publique qui exige planification, financement et suivi sérieux et continu.",
     "audio.label": "Enregistrement",
     "audio.title": "Écoutez la voix du quartier",
-    "audio.lede": "Un court témoignage des habitants sur une catastrophe dont les effets demeurent, au son du luth (oud).",
+    "audio.lede": "Un court témoignage des habitants sur une catastrophe dont les effets demeurent.",
     "petition.label": "La pétition",
     "petition.title": "Signez avec votre nom. Un nom suffit.",
     "petition.lede": "Aucune inscription, aucune adresse e-mail. Écrivez votre nom : il rejoint immédiatement la liste des signataires jointe au document adressé aux autorités.",
@@ -672,6 +677,8 @@ const translations = {
     "share.lede": "Copiez le lien et partagez-le dans vos groupes et sur vos réseaux. La pétition grandit avec ceux qui la connaissent.",
     "share.copy": "Copier le lien",
     "share.copied": "Lien copié",
+    "share.remain": "Encore {n} signatures pour atteindre 1000 — chaque partage nous rapproche.",
+    "share.reached": "Objectif de 1000 signatures atteint ! Continuez à partager.",
     "share.text": "Signez la pétition des habitants du centre-ville d'Aïn Sefra : équité, prévention et adaptation climatique.",
     "goal.label": "Objectif : 1000 signatures",
     "footer.line": "Revendications des habitants du centre-ville d'Aïn Sefra — Wilaya de Naâma",
@@ -724,7 +731,7 @@ const translations = {
     "pull.note": "Prevention today costs less than repairing disasters tomorrow, and protecting people and property is a public responsibility that requires planning, funding and serious, continuous follow-up.",
     "audio.label": "Recording",
     "audio.title": "Hear the voice of the district",
-    "audio.lede": "A short testimony from residents about a disaster whose effects remain, set to the sound of the oud.",
+    "audio.lede": "A short testimony from residents about a disaster whose effects remain.",
     "petition.label": "The petition",
     "petition.title": "Sign with your name. A name is enough.",
     "petition.lede": "No account, no email address. Write your name and it joins the list of signatories attached to the document sent to the authorities.",
@@ -750,6 +757,8 @@ const translations = {
     "share.lede": "Copy the link and share it in your groups and networks. The petition grows with everyone who hears about it.",
     "share.copy": "Copy the link",
     "share.copied": "Link copied",
+    "share.remain": "{n} signatures left to reach 1,000 — every share brings us closer.",
+    "share.reached": "Goal of 1,000 signatures reached! Keep sharing.",
     "share.text": "Sign the petition of the residents of downtown Aïn Sefra: fairness, protection and climate adaptation.",
     "goal.label": "Goal: 1,000 signatures",
     "footer.line": "Demands of the residents of downtown Aïn Sefra — Naâma Province",
@@ -869,6 +878,17 @@ function renderSigners() {
   const goalPct = Math.min(100, Math.round((n / GOAL) * 100));
   document.getElementById('goalFill').style.width = goalPct + '%';
   document.getElementById('goalCount').textContent = `${n} / ${GOAL}`;
+
+  const remainEl = document.getElementById('shareRemain');
+  if (remainEl) {
+    if (n >= GOAL) {
+      remainEl.textContent = t['share.reached'];
+      remainEl.classList.add('hit');
+    } else {
+      remainEl.textContent = t['share.remain'].replace('{n}', (GOAL - n).toLocaleString(currentLang));
+      remainEl.classList.remove('hit');
+    }
+  }
 
   if (n === 0) {
     list.innerHTML = `<li class="empty">${t['petition.empty']}</li>`;
