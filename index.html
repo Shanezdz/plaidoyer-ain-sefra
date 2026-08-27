@@ -252,6 +252,11 @@
   .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 20px 24px; border-bottom: 1px solid var(--rule); }
   .list-head h3 { font-size: 16px; font-weight: 700; color: var(--slate-deep); }
   .list-head .count { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--ochre); direction: ltr; white-space: nowrap; }
+  .goal { padding: 16px 24px; border-bottom: 1px solid var(--rule); }
+  .goal-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 12.5px; color: var(--ink-soft); margin-bottom: 10px; }
+  .goal-count { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--slate-deep); white-space: nowrap; }
+  .goal-track { height: 8px; background: var(--rule); border-radius: 4px; overflow: hidden; }
+  .goal-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--ochre), var(--ochre-bright)); transition: width .6s ease; }
   .signers { list-style: none; max-height: 520px; overflow-y: auto; }
   .signers::-webkit-scrollbar { width: 6px; }
   .signers::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
@@ -270,6 +275,16 @@
   .share .lab { font-family: 'Space Grotesk', 'Noto Kufi Arabic', sans-serif; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ochre-bright); }
   .share h2 { margin-top: 12px; max-width: 40rem; color: var(--fg); }
   .share .lede { margin-top: 12px; max-width: 40rem; font-size: 14px; line-height: 1.8; color: rgba(247, 245, 239, .8); }
+  .share-actions { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
+  .share-actions button, .share-actions a {
+    color: #fff; border: none; cursor: pointer; padding: 14px 26px;
+    font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 700; transition: transform .2s;
+  }
+  .share-actions button:hover, .share-actions a:hover { transform: translateY(-2px); }
+  .share-actions .share-copy { background: var(--ochre); }
+  .share-actions .wa { background: #25d366; }
+  .share-actions .fb { background: #1877f2; }
   .share button { background: var(--ochre); color: #fff; border: none; cursor: pointer; padding: 14px 28px; font-family: 'Noto Kufi Arabic', 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; transition: transform .2s; flex-shrink: 0; }
   .share button:hover { transform: translateY(-2px); }
 
@@ -424,6 +439,13 @@
           <h3 data-i18n="petition.listTitle">الموقّعون</h3>
           <span class="count" id="listCount">0</span>
         </div>
+        <div class="goal">
+          <div class="goal-meta">
+            <span data-i18n="goal.label">المسار نحو 1000 توقيع</span>
+            <span class="goal-count" id="goalCount" dir="ltr">0 / 1000</span>
+          </div>
+          <div class="goal-track"><div class="goal-fill" id="goalFill" style="width:0%"></div></div>
+        </div>
         <ul class="signers" id="signerList"></ul>
       </div>
     </div>
@@ -438,7 +460,11 @@
       <h2 data-i18n="share.title">كل مشاركة تُسمِع صوت الحي أبعد</h2>
       <p class="lede" data-i18n="share.lede">انسخ الرابط وشاركه في مجموعاتك وعلى شبكاتك. العريضة تكبر بعدد من يعرفها.</p>
     </div>
-    <button type="button" id="shareBtn" data-i18n="share.copy">نسخ رابط العريضة</button>
+    <div class="share-actions">
+      <button type="button" class="share-copy" id="shareBtn" data-i18n="share.copy">نسخ رابط العريضة</button>
+      <a class="share-social wa" id="waShare" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+      <a class="share-social fb" id="fbShare" href="#" target="_blank" rel="noreferrer">Facebook</a>
+    </div>
   </div>
 </section>
 
@@ -515,6 +541,7 @@ const translations = {
     "share.copy": "نسخ رابط العريضة",
     "share.copied": "تم نسخ الرابط",
     "share.text": "وقّعوا عريضة سكان حي وسط مدينة عين الصفراء: الإنصاف، الوقاية، والتكيف مع المخاطر المناخية.",
+    "goal.label": "المسار نحو 1000 توقيع",
     "footer.line": "مطالب سكان حي وسط مدينة عين الصفراء — ولاية النعامة",
     "footer.rights": "مبادرة مواطنة. النص منشور كما وُجّه إلى السلطات.",
     "toast.dup": "هذا الاسم مسجّل من قبل.",
@@ -587,6 +614,7 @@ const translations = {
     "share.copy": "Copier le lien",
     "share.copied": "Lien copié",
     "share.text": "Signez la pétition des habitants du centre-ville d'Aïn Sefra : équité, prévention et adaptation climatique.",
+    "goal.label": "Objectif : 1000 signatures",
     "footer.line": "Revendications des habitants du centre-ville d'Aïn Sefra — Wilaya de Naâma",
     "footer.rights": "Initiative citoyenne. Texte publié tel qu'adressé aux autorités.",
     "toast.dup": "Ce nom a déjà été enregistré.",
@@ -659,6 +687,7 @@ const translations = {
     "share.copy": "Copy the link",
     "share.copied": "Link copied",
     "share.text": "Sign the petition of the residents of downtown Aïn Sefra: fairness, protection and climate adaptation.",
+    "goal.label": "Goal: 1,000 signatures",
     "footer.line": "Demands of the residents of downtown Aïn Sefra — Naâma Province",
     "footer.rights": "A citizens' initiative. Text published as sent to the authorities.",
     "toast.dup": "This name has already been recorded.",
@@ -748,6 +777,10 @@ function applyLang(lang) {
   document.getElementById('sig-name').placeholder = t['petition.namePh'];
   document.getElementById('sig-city').placeholder = t['petition.cityPh'];
 
+  const SITE_URL = 'https://plaidoyer-ain-sefra.vercel.app/';
+  document.getElementById('waShare').href = 'https://wa.me/?text=' + encodeURIComponent(t['share.text'] + ' ' + SITE_URL);
+  document.getElementById('fbShare').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SITE_URL);
+
   renderDemands(t);
   renderGallery(t);
   renderSigners();
@@ -757,9 +790,14 @@ function renderSigners() {
   const t = translations[currentLang];
   const list = document.getElementById('signerList');
   const n = signers.length;
+  const GOAL = 1000;
 
   document.getElementById('heroCount').textContent = n;
   document.getElementById('listCount').textContent = `${n} ${t['petition.listCount']}`;
+
+  const goalPct = Math.min(100, Math.round((n / GOAL) * 100));
+  document.getElementById('goalFill').style.width = goalPct + '%';
+  document.getElementById('goalCount').textContent = `${n} / ${GOAL}`;
 
   if (n === 0) {
     list.innerHTML = `<li class="empty">${t['petition.empty']}</li>`;
