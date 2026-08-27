@@ -10,15 +10,6 @@ function reply(res, status, data) {
   return res.status(status).json(data);
 }
 
-function envDebug() {
-  const tok = process.env.BLOB_READ_WRITE_TOKEN || '';
-  return {
-    store: process.env.BLOB_STORE_ID || '(none)',
-    tokLen: tok.length,
-    tokTail: tok.slice(-6),
-  };
-}
-
 async function loadFile() {
   let blobs;
   try {
@@ -30,7 +21,7 @@ async function loadFile() {
   }
   if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
   try {
-    const file = await get(blobs.blobs[0].url, { access: 'private' });
+    const file = await get(blobs.blobs[0].url, { access: 'private', useCache: false });
     const parsed = JSON.parse(await new Response(file.stream).text());
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
@@ -64,7 +55,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '', env: envDebug() });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
     }
     const lower = name.toLowerCase();
     if (signers.some(s => (s.name || '').toLowerCase() === lower)) {
@@ -82,7 +73,7 @@ module.exports = async function handler(req, res) {
     try {
       await saveFile(signers);
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: 'put', msg: e.message || '', env: envDebug() });
+      return reply(res, 500, { error: 'storage', stage: 'put', msg: e.message || '' });
     }
 
     return reply(res, 200, { ok: true, count: signers.length });
@@ -93,7 +84,7 @@ module.exports = async function handler(req, res) {
     try {
       signers = await loadFile();
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '', env: envDebug() });
+      return reply(res, 500, { error: 'storage', stage: e.message, msg: e.cause || '' });
     }
     const recent = signers.slice(-MAX_RETURN);
     return reply(res, 200, { count: signers.length, signers: recent });
