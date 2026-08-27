@@ -30,7 +30,7 @@ async function loadFile() {
   }
   if (!blobs || !blobs.blobs || blobs.blobs.length === 0) return [];
   try {
-    const file = await get(blobs.blobs[0].url);
+    const file = await get(blobs.blobs[0].url, { access: 'private' });
     const parsed = JSON.parse(await file.text());
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
