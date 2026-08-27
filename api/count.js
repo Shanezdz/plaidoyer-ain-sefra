@@ -80,7 +80,7 @@ module.exports = async function handler(req, res) {
     try {
       await saveFile(signers);
     } catch (e) {
-      return reply(res, 500, { error: 'storage', stage: 'put' });
+      return reply(res, 500, { error: 'storage', stage: 'put', msg: e.message || '', env: envDebug() });
     }
 
     return reply(res, 200, { ok: true, count: signers.length });
