@@ -779,7 +779,9 @@ const translations = {
 /* ================= STATE ================= */
 let currentLang = 'ar';
 const LS_KEY = 'ainSefraSigners';
+const API = '/api/count';
 let signers = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+let serverCount = null;
 
 /* ================= HELPERS ================= */
 function escapeHtml(str) {
@@ -869,7 +871,7 @@ function applyLang(lang) {
 function renderSigners() {
   const t = translations[currentLang];
   const list = document.getElementById('signerList');
-  const n = signers.length;
+  const n = serverCount !== null ? serverCount : signers.length;
   const GOAL = 1000;
 
   document.getElementById('heroCount').textContent = n;
@@ -931,7 +933,7 @@ if (menuToggle && headerNav) {
 const form = document.getElementById('petitionForm');
 const note = document.getElementById('formNote');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const t = translations[currentLang];
   const name = document.getElementById('sig-name').value.trim();
@@ -949,6 +951,25 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
+  // 1) Envoi au compteur public (serveur)
+  try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, city, status, statusLabel })
+    });
+    if (res.status === 409) {
+      note.textContent = t['toast.dup'];
+      note.className = 'form-note err';
+      note.hidden = false;
+      return;
+    }
+    if (res.ok) {
+      const data = await res.json();
+      if (data && typeof data.count === 'number') serverCount = data.count;
+    }
+  } catch (err) { /* hors ligne : bascule en local */ }
+
   if (signers.some(s => s.name.toLowerCase() === name.toLowerCase())) {
     note.textContent = t['toast.dup'];
     note.className = 'form-note err';
@@ -957,7 +978,7 @@ form.addEventListener('submit', (e) => {
   }
 
   signers.push({ name, city, status, statusLabel, ts: Date.now() });
-  localStorage.setItem(LS_KEY, JSON.stringify(signers));
+  try { localStorage.setItem(LS_KEY, JSON.stringify(signers)); } catch (err) { /* stockage pleine */ }
 
   form.reset();
   renderSigners();
@@ -988,6 +1009,21 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ================= INIT ================= */
 applyLang('ar');
+
+async function syncFromServer() {
+  try {
+    const res = await fetch(API);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data && Array.isArray(data.signers)) {
+      signers = data.signers;
+      if (typeof data.count === 'number') serverCount = data.count;
+      try { localStorage.setItem(LS_KEY, JSON.stringify(signers)); } catch (err) { /* cache plein */ }
+      renderSigners();
+    }
+  } catch (err) { /* hors ligne : liste locale */ }
+}
+syncFromServer();
 
 try {
   if (!sessionStorage.getItem('nudgeShown')) {
