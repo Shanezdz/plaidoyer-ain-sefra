@@ -187,37 +187,6 @@
   @media (max-width: 900px) { .context-grid { grid-template-columns: 1fr; } }
 
 
-  /* MEMORIAL */
-  .memorial {
-    background: linear-gradient(135deg, #121a10 0%, #1f2b1c 100%);
-    border-top: 1px solid rgba(58,107,69,0.3);
-    border-bottom: 1px solid rgba(58,107,69,0.3);
-  }
-  .memorial-card {
-    max-width: 800px; margin: 0 auto; text-align: center;
-    padding: 60px 40px;
-    background: rgba(245,230,211,0.03);
-    border: 1px solid rgba(58,107,69,0.2);
-    border-radius: 25px;
-  }
-  .memorial-icon {
-    width: 80px; height: 80px; margin: 0 auto 25px;
-    background: var(--terracotta); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem;
-  }
-  .memorial h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; margin-bottom: 20px; color: var(--saffron);
-  }
-  .memorial p { color: #d8c5b0; font-size: 1.1rem; line-height: 1.8; }
-  .memorial .name {
-    display: block; margin-top: 25px;
-    font-size: 1.4rem; font-weight: 700; color: var(--cream);
-    font-family: 'Playfair Display', serif;
-  }
-
-
   /* DEMANDS */
   .demands { background: var(--deep-earth); }
   .demands-grid {
@@ -479,22 +448,6 @@
 </section>
 
 
-<!-- MEMORIAL -->
-<section class="memorial">
-  <div class="container">
-    <div class="memorial-card">
-      <div class="memorial-icon">🕊</div>
-      <h3 data-i18n="memorialTitle">إلى روح المرحوم محمد لويس</h3>
-      <p data-i18n="memorialText">
-        الذي وافته المنية رحمه الله أثناء هذه الفجائع الأليمة، واحد من بين أصحاب الممتلكات المتضررة.
-        ذكراه حاضرة في كل مطالبتنا، وحقّه لن يضيع.
-      </p>
-      <span class="name" data-i18n="memorialName">"الله يرحمك يا بن المدينة"</span>
-    </div>
-  </div>
-</section>
-
-
 <!-- DEMANDS -->
 <section class="demands">
   <div class="container">
@@ -595,9 +548,6 @@ const translations = {
     contextP2: "تضرّرت مساكن، محلات تجارية، وممتلكات المواطنين بشكل كبير. ورغم مرور الوقت، لا يزال المتضرّرون ينتظرون التعويض العادل والإجراءات الوقائية الحقيقية.",
     contextP3: "هذه المبادرة المدنية تطالب بالعدالة، الحماية، والوقاية من أخطار مناخية متزايدة — لأن الحياة لا تُقدَّر بثمن.",
     contextVisual: '"المدينة التي غرقت...<br>لن تصمت أبدًا"',
-    memorialTitle: "إلى روح المرحوم محمد لويس",
-    memorialText: "الذي وافته المنية رحمه الله أثناء هذه الفجائع الأليمة، واحد من بين أصحاب الممتلكات المتضررة. ذكراه حاضرة في كل مطالبنا، وحقّه لن يضيع.",
-    memorialName: '"الله يرحمك يا بن المدينة"',
     demandsTag: "المطالب الخمسة — THE 5 DEMANDS",
     demandsTitle: "ما نطالب به",
     demandsLead: "خمس مطالب واضحة، عادلة، ومشروعة — من أجل مدينة آمنة ومستقبل كريم لأبنائها.",
@@ -648,9 +598,6 @@ const translations = {
     contextP2: "Logements, commerces et biens des citoyens ont été gravement endommagés. Malgré le temps qui passe, les sinistrés attendent toujours une indemnisation juste et de véritables mesures de prévention.",
     contextP3: "Cette initiative citoyenne réclame justice, protection et prévention face aux risques climatiques croissants — car la vie n'a pas de prix.",
     contextVisual: '"La ville qui a été noyée...<br>ne se taira jamais"',
-    memorialTitle: "À la mémoire de feu Mohammed Louisa",
-    memorialText: "qui nous a quittés durant ces tragiques événements, l'un des propriétaires sinistrés. Sa mémoire guide chacune de nos revendications, et son droit ne sera pas oublié.",
-    memorialName: '"Que Dieu ait ton âme, enfant de la ville"',
     demandsTag: "LES 5 REVENDICATIONS",
     demandsTitle: "Ce que nous exigeons",
     demandsLead: "Cinq revendications claires, justes et légitimes — pour une ville sûre et un avenir digne pour ses habitants.",
@@ -701,9 +648,6 @@ const translations = {
     contextP2: "Homes, shops, and citizens' properties were severely damaged. Despite the passing of time, the victims are still awaiting fair compensation and real preventive measures.",
     contextP3: "This civic initiative demands justice, protection, and prevention against growing climate risks — because life is priceless.",
     contextVisual: '"The city that drowned...<br>will never be silent"',
-    memorialTitle: "In memory of the late Mohammed Louisa",
-    memorialText: "who passed away during these tragic events, one of the affected property owners. His memory guides every one of our demands, and his right will not be forgotten.",
-    memorialName: '"May God have mercy on your soul, son of the city"',
     demandsTag: "THE 5 DEMANDS",
     demandsTitle: "What we demand",
     demandsLead: "Five clear, just, and legitimate demands — for a safe city and a dignified future for its people.",
