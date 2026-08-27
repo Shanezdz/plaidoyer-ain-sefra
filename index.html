@@ -361,7 +361,7 @@
         <p class="p-lede" data-i18n="petition.lede">لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.</p>
         <form id="petitionForm" novalidate>
           <div class="field">
-            <label for="sig-name" data-i18n="petition.name">الاسم الكامل *</label>
+            <label for="sig-name" data-i18n="petition.name">الاسم الأول *</label>
             <input type="text" id="sig-name" minlength="2" maxlength="60" required placeholder="اكتب اسمك هنا...">
           </div>
           <div class="field">
@@ -450,7 +450,7 @@ const translations = {
     "petition.label": "العريضة",
     "petition.title": "وقّع باسمك. الاسم وحده يكفي.",
     "petition.lede": "لا حاجة إلى إنشاء حساب ولا إلى بريد إلكتروني. اكتب اسمك، فيُضاف مباشرة إلى قائمة الموقّعين المرفقة بالوثيقة الموجهة إلى السلطات.",
-    "petition.name": "الاسم واللقب",
+    "petition.name": "الاسم الأول",
     "petition.namePh": "اكتب اسمك هنا...",
     "petition.city": "المدينة",
     "petition.cityPh": "مثال: عين الصفراء",
@@ -516,7 +516,7 @@ const translations = {
     "petition.label": "La pétition",
     "petition.title": "Signez avec votre nom. Un nom suffit.",
     "petition.lede": "Aucune inscription, aucune adresse e-mail. Écrivez votre nom : il rejoint immédiatement la liste des signataires jointe au document adressé aux autorités.",
-    "petition.name": "Nom et prénom",
+    "petition.name": "Prénom",
     "petition.namePh": "Écrivez votre nom ici...",
     "petition.city": "Ville",
     "petition.cityPh": "Ex. : Aïn Sefra",
@@ -582,7 +582,7 @@ const translations = {
     "petition.label": "The petition",
     "petition.title": "Sign with your name. A name is enough.",
     "petition.lede": "No account, no email address. Write your name and it joins the list of signatories attached to the document sent to the authorities.",
-    "petition.name": "Full name",
+    "petition.name": "First name",
     "petition.namePh": "Write your name here...",
     "petition.city": "City",
     "petition.cityPh": "e.g. Aïn Sefra",
@@ -679,6 +679,9 @@ function applyLang(lang) {
     const map = { citizen: t['status.citizen'], victim: t['status.victim'], activist: t['status.activist'], solidarity: t['status.solidarity'] };
     Array.from(sel.options).forEach(o => { o.textContent = map[o.value]; });
   }
+
+  document.getElementById('sig-name').placeholder = t['petition.namePh'];
+  document.getElementById('sig-city').placeholder = t['petition.cityPh'];
 
   renderDemands(t);
   renderSigners();
