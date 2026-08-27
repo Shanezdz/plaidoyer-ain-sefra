@@ -83,7 +83,12 @@
   @media (max-width: 760px) { .header-nav a.nav-link { display: none; } }
 
   /* ---------------- HERO ---------------- */
-  .hero { background: var(--slate-deep); color: var(--fg); position: relative; overflow: hidden; }
+  .hero {
+    background:
+      linear-gradient(rgba(45, 51, 68, .62), rgba(45, 51, 68, .82) 55%, rgba(45, 51, 68, .94)),
+      url('assets/ain-sefra-4.jpg') center 40% / cover no-repeat;
+    color: var(--fg); position: relative; overflow: hidden;
+  }
   .hero .pattern {
     position: absolute; inset: 0; pointer-events: none; opacity: .16;
     background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.9) 0 1px, transparent 1px 26px);
